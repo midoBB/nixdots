@@ -153,9 +153,17 @@ in {
     corefonts # MS
     font-awesome
     font-awesome_5
+    pkgs.nur.repos.sagikazarmark.sf-pro
+    source-code-pro
+    cantarell-fonts
     (nerdfonts.override {
-      # Nerdfont Icons override
-      fonts = ["FiraCode" "NerdFontsSymbolsOnly" "Meslo" "Hack"];
+      fonts = [
+        "FiraCode"
+        "JetBrainsMono"
+        "NerdFontsSymbolsOnly"
+        "Meslo"
+        "Hack"
+      ];
     })
   ];
   nix = {

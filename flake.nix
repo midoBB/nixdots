@@ -67,7 +67,6 @@
         ./modules/bat
         ./modules/cli.nix
         ./modules/direnv
-        ./modules/fonts.nix
         ./modules/git
         ./modules/tmux
         ./modules/programming
@@ -107,11 +106,17 @@
   in {
     nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
       inherit system;
+      nixpkgs.overlays = [
+        nur.overlay
+      ];
       modules = [./laptop/configuration.nix ./modules/system-services.nix];
     };
 
     nixosConfigurations.work = nixpkgs.lib.nixosSystem {
       inherit system;
+      nixpkgs.overlays = [
+        nur.overlay
+      ];
       modules = [./work/configuration.nix ./modules/system-services.nix];
     };
     homeConfigurations = {
