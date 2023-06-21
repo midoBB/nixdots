@@ -73,6 +73,9 @@
     #KDE connect
     libsForQt5.kdeconnect-kde
   ];
+  fonts.fonts =  [
+    pkgs.nur.repos.sagikazarmark.sf-pro
+  ];
 
   xdg = {
     configFile."pcmanfm-qt/default/settings.conf".source = ./pcmanfm-qt.conf;

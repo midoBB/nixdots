@@ -153,7 +153,6 @@ in {
     corefonts # MS
     font-awesome
     font-awesome_5
-    pkgs.nur.repos.sagikazarmark.sf-pro
     source-code-pro
     cantarell-fonts
     (nerdfonts.override {
