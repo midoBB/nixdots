@@ -1,0 +1,86 @@
+"" Common settings -------------------------
+" set clipboard+=unnamed
+" set clipboard+=ideaput
+set scrolloff=8
+set incsearch
+set easymotion
+set relativenumber number
+set surround
+set showmode
+set NERDTree
+Plug 'tpope/vim-commentary'
+Plug 'machakann/vim-highlightedyank'
+"------------------------------------------------------
+let mapleader=" "
+"------------------------------------------------------
+nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
+map <c-f> :NERDTreeToggle<CR>
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
+map <c-q> <Action>(FileStructurePopup)
+map <c-t> <Action>(ActivateTerminalToolWindow)
+map <leader>d <Action>(Debug)
+map <leader>c <Action>(Stop)
+map <leader>a <Action>(Annotate)
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>sq <Action>(Jdbc.OpenConsole.New.Generate)
+""" The Escape button
+map <C-c> <Esc>
+""" The Leader Key
+let mapleader=" "
+""" Navigation
+nnoremap ss :action SplitHorizontally<CR>
+nnoremap sv :action SplitVertically<CR>
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-d> <c-d>zz
+nnoremap <c-u> <c-u>zz
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap <TAB> :action PreviousTab<CR>
+nnoremap <s-TAB> :action NextTab<CR>
+nnoremap <Leader>c :action CloseContent<CR>
+nmap <leader>i <action>(Generate)
+nnoremap <Leader>qa :action CloseAllEditors<CR>
+""" Editing source code
+set ideajoin
+set idearefactormode=keep
+vnoremap < <gv
+vnoremap > >gv
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>
+nnoremap zc :action CollapseRegion<CR>
+nnoremap zo :action ExpandRegion<CR>
+nnoremap <leader>zc :action CollapseAllRegions<CR>
+nnoremap <leader>zo :action ExpandAllRegions<CR>
+nnoremap <Leader>r  :action RenameElement<CR>
+nnoremap <leader>f :action Refactorings.QuickListPopupAction<CR>
+vnoremap <Leader>r  :action RenameElement<CR>
+vnoremap <leader>f :action Refactorings.QuickListPopupAction<CR>
+nnoremap <Leader>=  :action ReformatCode<CR>
+nmap <C-o> <Action>(Back)
+""" Searching and Source Code Navigation
+nnoremap <c-a> :action GotoAction<CR>
+nnoremap <leader>u :action FindUsages<CR>
+nnoremap <leader>h :action CallHierarchy<CR>
+nnoremap gc :action GotoClass<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gd :action GotToDeclaration<CR>
+nnoremap gp :action GotToSuperMethod<CR>
+nnoremap gt :action GotoTest<CR>
+nnoremap gf :action Forward<CR>
+
+
+" system clipboard
+vmap <leader>y "+y
+vmap <leader>d "+d
+nmap <leader>y "+yy
+nmap <leader>p "+p
+nmap <leader>P "+P
+vmap <leader>p "+p
+vmap <leader>P "+P
+

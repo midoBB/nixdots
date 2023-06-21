@@ -1,0 +1,186 @@
+workspace_layout tabbed
+for_window [title="^floatt$"] floating enable, move position center
+
+font pango:SF Pro Display Regular, Liga SFMono Nerd Font 11.000000
+floating_modifier Mod4
+default_border pixel 0
+default_floating_border pixel 2
+hide_edge_borders none
+focus_wrapping yes
+focus_follows_mouse yes
+focus_on_window_activation smart
+workspace_auto_back_and_forth no
+client.focused #4c7899 #285577 #ffffff #2e9ef4 #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50 #5f676a
+client.unfocused #333333 #222222 #888888 #292d2e #222222
+client.urgent #2f343a #900000 #ffffff #900000 #900000
+client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
+client.background #ffffff
+
+bindsym Mod1+Ctrl+Delete exec powermenu
+bindsym Mod4+Return exec switchto 'wezterm' 'org.wezfurlong.wezterm'
+bindsym Mod4+Shift+Return exec rofi -no-lazy-grab -show drun -modi drun -theme kde_launcher
+bindsym Mod4+Shift+d exec rofi -no-lazy-grab -show drun -modi drun -theme kde_launcher
+bindsym Mod4+b exec switchto 'firefox' 'Firefox'
+bindsym Mod4+d exec alacritty  -e ff.sh
+bindsym Mod4+g exec switchto 'pcmanfm-qt' 'pcmanfm-qt'
+bindsym Mod4+n exec kill -s USR1 $(pidof deadd-notification-center)
+bindsym Mod4+o exec switchto 'obsidian' 'obsidian'
+bindsym Mod4+q kill
+bindsym Mod4+s exec alacritty  -e fd.sh
+bindsym Print exec flameshot gui
+bindsym XF86AudioLowerVolume exec amixer set Master 5%-
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+
+
+
+
+# change focus
+bindsym Mod4+h focus left
+bindsym Mod4+j focus down
+bindsym Mod4+k focus up
+bindsym Mod4+l focus right
+
+
+# move focused window
+bindsym Mod4+Shift+h move left
+bindsym Mod4+Shift+j move down
+bindsym Mod4+Shift+k move up
+bindsym Mod4+Shift+l move right
+
+
+# split in horizontal orientation
+bindsym Mod4+c split h
+
+# split in vertical orientation
+bindsym Mod4+v split v
+
+# enter fullscreen mode for the focused container
+bindsym Mod4+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+# bindsym Mod4+s layout stacking
+bindsym Mod4+z layout tabbed
+bindsym Mod4+e layout toggle split
+
+# toggle tiling / floating
+bindsym Mod4+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym Mod4+space focus mode_toggle
+
+set $ws1 1:
+set $ws2 2:
+set $ws3 3:
+set $ws4 4:
+set $ws5 5:
+set $ws6 6:
+set $ws7 7:
+set $ws8 8:
+
+# switch to workspace
+bindsym Mod4+ampersand workspace number $ws1
+bindsym Mod4+eacute workspace number $ws2
+bindsym Mod4+quotedbl workspace number $ws3
+bindsym Mod4+apostrophe workspace number $ws4
+bindsym Mod4+parenleft workspace number $ws5
+bindsym Mod4+minus workspace number $ws6
+bindsym Mod4+egrave workspace number $ws7
+bindsym Mod4+underscore workspace number $ws8
+
+# move focused container to workspace
+bindsym Mod4+Shift+1 move container to workspace number $ws1
+bindsym Mod4+Shift+eacute move container to workspace number $ws2
+bindsym Mod4+Shift+3 move container to workspace number $ws3
+bindsym Mod4+Shift+4 move container to workspace number $ws4
+bindsym Mod4+Shift+5 move container to workspace number $ws5
+bindsym Mod4+Shift+6 move container to workspace number $ws6
+bindsym Mod4+Shift+egrave move container to workspace number $ws7
+bindsym Mod4+Shift+underscore  move container to workspace number $ws8
+# reload the configuration file
+bindsym Mod4+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym Mod4+Shift+r restart
+# exit i3 (logs you out of your X session)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or Mod4+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym Mod4+r mode "default"
+}
+
+bindsym Mod4+r mode "resize"
+bindsym Mod4+i move workspace to output right
+bindsym Mod4+u move workspace to output left
+for_window [class="scrcpy"] floating enable
+assign [class="mpv"] $ws5
+assign [class="thunderbird"] $ws7
+assign [class="Mailspring"] $ws7
+assign [class="discord"] $ws7
+assign [class="Skype"] $ws7
+assign [class="Alacritty"] $ws2
+assign [class="org.wezfurlong.wezterm"] $ws2
+assign [class="Code"] $ws3
+assign [class="jetbrains-idea"] $ws3
+assign [class="jetbrains-pycharm"] $ws3
+assign [class="jetbrains-goland"] $ws3
+assign [class="jetbrains-webstorm"] $ws3
+assign [class="Microsoft-edge"] $ws1
+assign [class="Google-chrome"] $ws1
+assign [class="Vivaldi-stable"] $ws1
+assign [class="firefox"] $ws1
+assign [class="Navigator"] $ws1
+assign [class="calibre-ebook-viewer"] $ws4
+assign [class="Deadbeef"] $ws6
+for_window [class="Spotify"] move container to workspace $ws6
+for_window [class="firefox"] move container to workspace $ws1
+for_window [class="Kodi"] move container to workspace $ws8
+for_window [class="Orage"] floating enable; focus mode_toggle
+assign [class="Rhythmbox"] $ws6
+assign [class="Postman"] $ws4
+assign [class="Zathura"] $ws4
+assign [class="okular"] $ws4
+assign [class="sioyek"] $ws4
+assign [class="Emacs"] $ws4
+assign [class="obsidian"] $ws4
+assign [class="jetbrains-datagrip"] $ws4
+assign [class="pcmanfm-qt"] $ws5
+gaps inner 15
+gaps outer 5
+smart_gaps on
+smart_borders on
+
+
+
+exec --no-startup-id dex --autostart --environment i3
+exec_always feh --randomize --bg-fill ~/.local/share/wallpapers/*
+exec --no-startup-id redshift-gtk -l 36:10
+exec --no-startup-id kdeconnect-indicator
+exec --no-startup-id birdtray
+exec_always --no-startup-id indicator-sound-switcher
+# exec_always --no-startup-id ~/.config/polybar/launch.sh
+# exec --no-startup-id nm-applet
+exec_always --no-startup-id picom --experimental-backend
+exec --no-startup-id mate-settings-daemon
+exec --no-startup-id mate-power-manager
