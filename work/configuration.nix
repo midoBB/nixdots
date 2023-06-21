@@ -81,6 +81,7 @@
     extraGroups = ["wheel" "video" "audio" "camera" "networkmanager"];
     shell = pkgs.zsh;
   };
+  programs.zsh.enable = true;
   environment.shells = with pkgs; [zsh];
 
   # This value determines the NixOS release from which the default
