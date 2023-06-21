@@ -72,8 +72,6 @@
     redshift
     #KDE connect
     libsForQt5.kdeconnect-kde
-  ];
-  fonts.fonts =  [
     pkgs.nur.repos.sagikazarmark.sf-pro
   ];
 

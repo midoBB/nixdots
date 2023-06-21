@@ -1,26 +1,38 @@
-name: Cachix
-on:
-  push:
-    branches:
-      - main
 jobs:
-  build:
-    runs-on: ubuntu-20.04
+  build-linux:
+    runs-on: ubuntu-latest
     steps:
-      # Clone repo
+      - uses: easimon/maximize-build-space@v7
+        with:
+          overprovision-lvm: true
+          remove-android: true
+          remove-codeql: true
+          remove-docker-images: true
+          remove-dotnet: true
+          remove-haskell: true
+          root-reserve-mb: 512
+          swap-size-mb: 1024
       - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v20
         with:
-          submodules: recursive
-      # Install nix
-      - uses: cachix/install-nix-action@v18
-      - name: Cachix setup
-        uses: cachix/cachix-action@v12
+          extra_nix_config: access-tokens = github.com=${{ secrets.GH_TOKEN }}
+          nix_path: nixpkgs=channel:nixos-unstable
+      - uses: cachix/cachix-action@v12
         with:
-          name: YOURNAME
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-          skipPush: true
-
-      - name: Build private-laptop system derivation
-        run: nix-build '<nixpkgs/nixos>' -I nixos-config=./hosts/private-laptop/configuration.nix -I nixpkgs=./nix/nixos-unstable -A system
-      - name: Cache private-laptop system derivation
-        run: realpath result | cachix push YOURNAME
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          extraPullNames: nix-community
+          name: midobbdots
+      - name: Set default git branch (to reduce log spam)
+        run: git config --global init.defaultBranch master
+      - name: 'Build Home-Manager configs for: laptop, work'
+        run: |-
+          nix build --print-build-logs '.#homeConfigurations.laptop.activationPackage'
+          nix build --print-build-logs '.#homeConfigurations.work.activationPackage'
+      - name: 'Build NixOS configs for: laptop, work'
+        run: |-
+          nix build --print-build-logs '.#nixosConfigurations.laptop.config.system.build.toplevel'
+          nix build --print-build-logs '.#nixosConfigurations.work.config.system.build.toplevel'
+name: build-and-cache
+"on":
+  - push
+  - workflow_dispatch
