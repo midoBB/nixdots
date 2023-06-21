@@ -78,15 +78,18 @@
     })
   ];
   nix = {
-    # config.allowUnfree = true; # Allow proprietary software.
-    # Nix Package Manager settings
     settings = {
       auto-optimise-store = true; # Optimise syslinks
       experimental-features = ["nix-command" "flakes"]; # enable nix command and flakes
       trusted-users = ["root" "mh"];
+      substituters = [
+        "https://cache.garnix.io"
+      ];
+      trusted-public-keys = [
+        "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+      ];
     };
     gc = {
-      # Automatic garbage collection
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 7d";

@@ -88,8 +88,8 @@ in {
         "Hack"
       ];
     })
-    (nf-patch iosevka-ss08-term)
-    iosevka-ss08
+    # (nf-patch iosevka-ss08-term)
+    # iosevka-ss08
     # Fonts
     vistafonts
     jetbrains-mono
