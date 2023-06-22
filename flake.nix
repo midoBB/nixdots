@@ -29,6 +29,20 @@
           colorscheme = import ./colorschemes/tokyonight.nix;
           username = "mh";
         };
+
+        nix = {
+          package = pkgs.nix;
+          settings = {
+            extra-substituters = [
+              "https://nix-community.cachix.org"
+              "https://midobbdots.cachix.org"
+            ];
+            extra-trusted-public-keys = [
+              "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+              "midobbdots.cachix.org-1:LrxKMSxUgZaR7t7PWz3+sKwgxnhanbmv/rAL9RMS8II="
+            ];
+          };
+        };
         nixpkgs.config = {
           allowUnfree = true;
           allowUnfreePredicate = pkg: true;

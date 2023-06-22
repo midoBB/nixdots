@@ -52,7 +52,7 @@
           "ss12=0", -- \\ Thin backslash (ruins ASCII art)
         },
         font_size = 13.0,
-        font = wezterm.font "IosevkaTerm Nerd Font",
+        font = wezterm.font "Iosevka Term",
         -- To ignore updates because nix manages them
         check_for_updates = false,
         show_update_window = false,
