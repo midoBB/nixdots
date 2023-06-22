@@ -36,24 +36,17 @@
       local wezterm = require("wezterm")
       return {
         warn_about_missing_glyphs = false,
-        harfbuzz_features = {
-          "calt=1", -- https://docs.microsoft.com/en-us/typography/opentype/spec/features_ae#tag-calt
-          "clig=1", -- https://docs.microsoft.com/en-us/typography/opentype/spec/features_ae#tag-clig
-          "liga=1", -- Ligatures
-          "zero=0", -- 0 with slash or dot
-          "ss01=0", -- * Asterisk normal or raised
-          "ss02=0", -- Script variant of font
-          "ss06=0", -- @ variants
-          "ss07=1", -- {} variations
-          "ss08=1", -- () variations
-          "ss09=1", -- >= 2 sharacters wide or not
-          "ss10=0", -- >= Alternate appearance for 1 char width
-          "ss11=1", -- 0xF Alternate hex appearance
-          "ss12=0", -- \\ Thin backslash (ruins ASCII art)
-        },
+	    harfbuzz_features = {
+		    "cv06=1",
+		    "cv14=1",
+		    "cv32=1",
+		    "ss04=1",
+		    "ss07=1",
+		    "ss09=1",
+	    },
         font_size = 13.0,
-        font = wezterm.font "Iosevka Term",
-        -- To ignore updates because nix manages them
+        front_end = "WebGpu",
+        font = wezterm.font("Iosevka Term"),
         check_for_updates = false,
         show_update_window = false,
         window_close_confirmation = 'NeverPrompt',
