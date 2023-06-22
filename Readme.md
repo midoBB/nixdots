@@ -49,6 +49,7 @@ or parts of it setup on any system.
 - Copy the secrets to the correct places
 - Run system configuration
 - Run home manager configuration
+- After all said and done import treestyletab json to Firefox
 ```bash
   nix-shell -p curl git ansible gnutar
   git clone https://github.com/midoBB/nixdots.git
@@ -58,6 +59,7 @@ or parts of it setup on any system.
   mv .secrets/env .env
   tar xvf .secrets/ssh.tar.gz
   mv .secrets/.ssh ~/.ssh
+  cp .secrets/configs-treestyletabs.json ~
   rm -rf .secrets/.ssh
   ansible-vault encrypt .secrets/*
   sudo nixos-rebuild switch --flake './#laptop'

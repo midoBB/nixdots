@@ -5,7 +5,8 @@
   "browser.newtabpage.introShown" = false;
   "extensions.pocket.enabled" = false;
   "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
-  "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSite" = false;
+  "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSite" =
+    false;
   "browser.aboutConfig.showWarning" = false;
   "browser.shell.checkDefaultBrowser" = false;
   "browser.disableResetPrompt" = true;
@@ -57,42 +58,58 @@
   "browser.newtab.preload" = false;
   "extensions.getAddons.showPane" = false;
   "extensions.webservice.discoverURL" = "";
-  # Disable access to device sensor data
-  # Disallow websites to access sensor data (ambient light, motion, device
-  # orientation and proximity data).
   "device.sensors.ambientLight.enabled" = false;
   "device.sensors.enabled" = false;
   "device.sensors.motion.enabled" = false;
   "device.sensors.orientation.enabled" = false;
   "device.sensors.proximity.enabled" = false;
   "pdfjs.enableScripting" = true;
-
-  # Disable automatic updates.
-  # Updates are no longer installed automatically. You will still be notified when
-  # an update is available and can install it. Avoids getting a new (maybe addon
-  # incompatible) version.
   "app.update.auto" = false;
   "extensions.blocklist.enabled" = false;
-  # Show Punycode.
-  # This helps to protect against possible character spoofing.
   "network.IDN_show_punycode" = true;
-
-  # Enable Do-not-Track
-  # With the do not track feature, you tell websites, that you do not want to be
-  # tracked. Most websites ignore this, so you need other privacy options as well.
   "privacy.donottrackheader.enabled" = true;
   "privacy.donottrackheader.value" = 1;
-  # Enable Mozilla Trackingprotection
-  # Firefox has a builtin tracking protection
-  # ( https://wiki.mozilla.org/Security/Tracking_protection ), which blocks a list of
-  # known tracking sites.
   "privacy.trackingprotection.pbmode.enabled" = true;
   "privacy.trackingprotection.enabled" = true;
   "privacy.trackingprotection.fingerprinting.enabled" = true;
   "privacy.trackingprotection.cryptomining.enabled" = true;
   "browser.send_pings" = false;
-  # Disable Beacons
-  # The Beacon (https://w3c.github.io/beacon/) feature allows websites to send
-  # tracking data after you left the website.
   "beacon.enabled" = false;
+  "font.name.serif.x-western" = "Times New Roman";
+  "font.name.sans-serif.x-western" = "SF Pro Display";
+  "font.name.monospace.x-western" = "MesloLGS NF";
+  "browser.newtabpage.pinned" = [
+    {
+      title = "Reddit";
+      url = "http://www.reddit.com/r/all";
+    }
+    {
+      title = "Youtube";
+      url = "http://www.youtube.com";
+    }
+    {
+      title = "HNews";
+      url = "https://news.ycombinator.com/front";
+    }
+    {
+      title = "Twitch";
+      url = "https://www.twitch.tv/";
+    }
+    {
+      title = "Outlook";
+      url = "http://outlook.com/";
+    }
+    {
+      title = "Mangadex";
+      url = "https://mangadex.org/titles/feed";
+    }
+    {
+      title = "Media Server";
+      url = "http://localhost:8090/";
+    }
+    {
+      title = "chatGPT";
+      url = "https://chat.openai.com";
+    }
+  ];
 }

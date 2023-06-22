@@ -50,6 +50,7 @@
       ]
       else [
         # lua
+        stylua
         lua
         #java
         temurin-bin
