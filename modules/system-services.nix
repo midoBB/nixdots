@@ -1,4 +1,4 @@
-{pkgs, ...}: 
+{ pkgs, ... }:
 let
   variants = {
     design = {
@@ -84,12 +84,10 @@ in {
 
   services.dbus = {
     enable = true;
-    packages = [pkgs.dconf];
+    packages = [ pkgs.dconf ];
   };
   services.xserver = {
-    desktopManager = {
-      mate.enable = true;
-    };
+    desktopManager = { mate.enable = true; };
     displayManager.defaultSession = "mate";
     windowManager.i3 = {
       enable = true;
@@ -140,12 +138,10 @@ in {
     icons.enable = true;
     menus.enable = true;
     mime.enable = true;
-    portal = {enable = true;};
+    portal = { enable = true; };
   };
   fonts.fonts = with pkgs; [
     # Fonts
-    (nf-patch iosevka-ss08-term)
-    iosevka-ss08
     vistafonts
     jetbrains-mono
     helvetica-neue-lt-std
@@ -153,28 +149,21 @@ in {
     corefonts # MS
     font-awesome
     font-awesome_5
-    source-code-pro
-    cantarell-fonts
     (nerdfonts.override {
-      fonts = [
-        "FiraCode"
-        "JetBrainsMono"
-        "NerdFontsSymbolsOnly"
-        "Meslo"
-        "Hack"
-      ];
+      fonts = [  "NerdFontsSymbolsOnly"  "Hack" ];
     })
   ];
   nix = {
     settings = {
       auto-optimise-store = true; # Optimise syslinks
-      experimental-features = ["nix-command" "flakes"]; # enable nix command and flakes
-      trusted-users = ["root" "mh"];
-      substituters = [
-        "https://cache.garnix.io"
-      ];
+      experimental-features =
+        [ "nix-command" "flakes" ]; # enable nix command and flakes
+      trusted-users = [ "root" "mh" ];
+      substituters =
+        [ "https://nix-community.cachix.org" "https://midobbdots.cachix.org" ];
       trusted-public-keys = [
-        "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "midobbdots.cachix.org-1:LrxKMSxUgZaR7t7PWz3+sKwgxnhanbmv/rAL9RMS8II="
       ];
     };
     gc = {
@@ -192,17 +181,13 @@ in {
   # KDE connect shit
   networking.firewall = {
     enable = false;
-    allowedTCPPortRanges = [
-      {
-        from = 1714;
-        to = 1764;
-      }
-    ];
-    allowedUDPPortRanges = [
-      {
-        from = 1714;
-        to = 1764;
-      }
-    ];
+    allowedTCPPortRanges = [{
+      from = 1714;
+      to = 1764;
+    }];
+    allowedUDPPortRanges = [{
+      from = 1714;
+      to = 1764;
+    }];
   };
 }

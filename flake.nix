@@ -71,6 +71,7 @@
           # ./modules/xmonad
           ./modules/polybar
           ./modules/autorandr
+          ./modules/fonts.nix
         ];
       };
 

@@ -72,7 +72,6 @@
     redshift
     #KDE connect
     libsForQt5.kdeconnect-kde
-    pkgs.nur.repos.sagikazarmark.sf-pro
   ];
 
   xdg = {
