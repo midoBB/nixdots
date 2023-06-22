@@ -1,7 +1,6 @@
 .env
 result
 .direnv/
-**/secrets*
 
 # I am unsure how this thing got here. Will need to figure out why this folder
 # was created and what is an apt location for it.

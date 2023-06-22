@@ -1,6 +1,7 @@
 # `dotfiles`
 
-Here lies the `dotfiles` crafted with much care
+Here lies the `dotfiles` crafted with much care. Shamelessly stolen from [this repo](https://github.com/sherubthakur/dotfiles) then changed to fit my
+needs.
 
 ## Configuration
 
@@ -27,18 +28,6 @@ A glance at what is present in this lair.
 Here is a walkthrough of what are the steps one need to take to get this config
 or parts of it setup on any system.
 
-### User config setup
-
-#### Requirements
-
-- nix with flake support is available
-
-#### Steps
-
-- Get contents of this repo onto your system to `~/.dotfiles`
-- `cd` into `~/.dotfiles`
-- Execute: `nix run home-manager --no-write-lock-file -- switch --flake "./#nixos"`
-
 ### Full Setup of NixOS (first time)
 
 #### Requirements
@@ -52,10 +41,26 @@ or parts of it setup on any system.
 #### Steps
 
 - Install NixOS
-  - Make sure you have a way to get this repo. `curl`, `git`, etc.
-  - Make sure you enable internet
+- Make sure you have a way to get this repo. `curl`, `git`, `ansible-vault`.
+- Make sure you enable internet
 - Get contents of this repo onto your system to `~/.dotfiles`
 - `cd` into `~/.dotfiles`
-- Execute: `sudo nixos-rebuild switch --flake './#nixos'`
-- Execute: `nix run home-manager --no-write-lock-file -- switch --flake "./#nixos"`
+- Decrypt the secrets
+- Copy the secrets to the correct places
+- Run system configuration
+- Run home manager configuration
+```bash
+  nix-shell -p curl git ansible gnutar
+  git clone https://github.com/midoBB/nixdots.git
+  mv nixdots ~/.dotfiles
+  cd ~/.dotfiles
+  ansible-vault decrypt .secrets/*
+  mv .secrets/env .env
+  tar xvf .secrets/ssh.tar.gz
+  mv .secrets/.ssh ~/.ssh
+  rm -rf .secrets/.ssh
+  ansible-vault encrypt .secrets/*
+  sudo nixos-rebuild switch --flake './#laptop'
+  nix run home-manager --no-write-lock-file -- switch --flake "./#laptop"
+```
 
