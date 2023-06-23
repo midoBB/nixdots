@@ -19,9 +19,10 @@
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXROOT";
     fsType = "btrfs";
+    options = ["subvol=@"];
   };
 
-  fileSystems."/boot/efi" = {
+  fileSystems."/boot" = {
     device = "/dev/disk/by-label/NIXBOOT";
     fsType = "vfat";
   };
@@ -34,5 +35,5 @@
     powertop.enable = true;
     cpuFreqGovernor = "ondemand";
   };
-  nix.settings.max-jobs = lib.mkDefault 16;
+  nix.settings.max-jobs = lib.mkDefault 8;
 }
