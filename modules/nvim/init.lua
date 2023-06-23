@@ -886,6 +886,7 @@ require("lazy").setup({
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
       "JoosepAlviste/nvim-ts-context-commentstring",
+      "nvim-treesitter/nvim-treesitter-context",
     },
   },
   {
@@ -918,7 +919,7 @@ require("lazy").setup({
   "ggandor/leap.nvim",
   "ggandor/flit.nvim",
   "Vonr/align.nvim",
-  "johmsalas/text-case.nvim",
+  { "johmsalas/text-case.nvim", opts = {} },
 }, {})
 
 require("leap").add_default_mappings()
@@ -1305,9 +1306,19 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- [[ Configure Treesitter ]]
 require("nvim-treesitter.configs").setup({
-  highlight = { enable = true },
+  highlight = {
+    enable = true,
+    disable = { "comment" },
+  },
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    max_file_lines = nil,
+  },
   indent = { enable = true },
-
+  autotag = {
+    enable = true,
+  },
   context_commentstring = {
     enable = true,
     enable_autocmd = false,
@@ -1321,58 +1332,7 @@ require("nvim-treesitter.configs").setup({
       node_decremental = "<M-space>",
     },
   },
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ["aa"] = "@parameter.outer",
-        ["ia"] = "@parameter.inner",
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-      },
-    },
-    move = {
-      enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
-      goto_next_start = {
-        ["]m"] = "@function.outer",
-        ["]]"] = "@class.outer",
-      },
-      goto_next_end = {
-        ["]M"] = "@function.outer",
-        ["]["] = "@class.outer",
-      },
-      goto_previous_start = {
-        ["[m"] = "@function.outer",
-        ["[["] = "@class.outer",
-      },
-      goto_previous_end = {
-        ["[M"] = "@function.outer",
-        ["[]"] = "@class.outer",
-      },
-    },
-    swap = {
-      enable = true,
-      swap_next = {
-        ["<leader>a"] = "@parameter.inner",
-      },
-      swap_previous = {
-        ["<leader>A"] = "@parameter.inner",
-      },
-    },
-  },
 })
-
--- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
-
 local actions = require("telescope.actions")
 require("telescope").setup({
   defaults = {

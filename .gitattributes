@@ -1,0 +1,1 @@
+.secrets/** diff="ansible-vault view" merge=binary filter=vault
