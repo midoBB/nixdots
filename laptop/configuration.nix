@@ -10,7 +10,7 @@
   boot.loader = {
     efi.canTouchEfiVariables = true;
     timeout = 1;
-    efi.efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
+    efi.efiSysMountPoint = "/boot"; # ← use the same mount point here.
     grub = {
       devices = ["nodev"];
       efiSupport = true;
@@ -136,5 +136,4 @@
 
   virtualisation.docker.enable = true;
   virtualisation.docker.enableOnBoot = true;
-  virtualisation.docker.liveRestore = false;
 }
