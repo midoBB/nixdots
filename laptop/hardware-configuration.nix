@@ -18,7 +18,7 @@
   boot.extraModprobeConfig = "options bluetooth disable_ertm=1 "; # This is to allow Xbox controller to work
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXROOT";
-    fsType = "ext4";
+    fsType = "btrfs";
   };
 
   fileSystems."/boot/efi" = {
