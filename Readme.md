@@ -55,12 +55,12 @@ or parts of it setup on any system.
   git clone https://github.com/midoBB/nixdots.git
   mv nixdots ~/.dotfiles
   cd ~/.dotfiles
+  echo 'password' > .vault
   ansible-vault decrypt .secrets/*
   mv .secrets/env .env
   tar xvf .secrets/ssh.tar.gz
   mv .secrets/.ssh ~/.ssh
   cp .secrets/configs-treestyletabs.json ~
-  rm -rf .secrets/.ssh
   ansible-vault encrypt .secrets/*
   sudo nixos-rebuild switch --flake './#laptop'
   nix run home-manager --no-write-lock-file -- switch --flake "./#laptop"
