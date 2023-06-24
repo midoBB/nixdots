@@ -36,6 +36,7 @@
        local wezterm = require("wezterm")
        return {
          warn_about_missing_glyphs = false,
+       cell_width = 1.09,
        harfbuzz_features = {
        "cv06=1",
        "cv14=1",
