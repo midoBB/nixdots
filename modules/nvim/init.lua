@@ -887,6 +887,9 @@ require("lazy").setup({
       "nvim-treesitter/nvim-treesitter-textobjects",
       "JoosepAlviste/nvim-ts-context-commentstring",
       "nvim-treesitter/nvim-treesitter-context",
+      "HiPhish/nvim-ts-rainbow2",
+      "windwp/nvim-ts-autotag",
+      "haringsrob/nvim_context_vt",
     },
   },
   {
@@ -920,6 +923,15 @@ require("lazy").setup({
   "ggandor/flit.nvim",
   "Vonr/align.nvim",
   { "johmsalas/text-case.nvim", opts = {} },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {}, -- this is equalent to setup({}) function
+  },
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = "kevinhwang91/promise-async",
+  },
 }, {})
 
 require("leap").add_default_mappings()
@@ -1305,6 +1317,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- [[ Configure Treesitter ]]
+local rainbow = require("ts-rainbow")
 require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
@@ -1312,8 +1325,10 @@ require("nvim-treesitter.configs").setup({
   },
   rainbow = {
     enable = true,
-    extended_mode = true,
-    max_file_lines = nil,
+    query = {
+      "rainbow-parens",
+    },
+    strategy = rainbow.strategy.global,
   },
   indent = { enable = true },
   autotag = {
@@ -1382,3 +1397,40 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
     resession.save(get_session_name(), { dir = "dirsession", notify = false })
   end,
 })
+
+local ufo = require("ufo")
+local handler = function(virtText, lnum, endLnum, width, truncate)
+  local newVirtText = {}
+  local suffix = ("  %d "):format(endLnum - lnum)
+  local sufWidth = vim.fn.strdisplaywidth(suffix)
+  local targetWidth = width - sufWidth
+  local curWidth = 0
+  for _, chunk in ipairs(virtText) do
+    local chunkText = chunk[1]
+    local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+    if targetWidth > curWidth + chunkWidth then
+      table.insert(newVirtText, chunk)
+    else
+      chunkText = truncate(chunkText, targetWidth - curWidth)
+      local hlGroup = chunk[2]
+      table.insert(newVirtText, { chunkText, hlGroup })
+      chunkWidth = vim.fn.strdisplaywidth(chunkText)
+      -- str width returned from truncate() may less than 2nd argument, need padding
+      if curWidth + chunkWidth < targetWidth then
+        suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
+      end
+      break
+    end
+    curWidth = curWidth + chunkWidth
+  end
+  table.insert(newVirtText, { suffix, "MoreMsg" })
+  return newVirtText
+end
+ufo.setup({
+  fold_virt_text_handler = handler,
+  provider_selector = function(_, _, _)
+    return { "treesitter", "indent" }
+  end,
+})
+local bufnr = vim.api.nvim_get_current_buf()
+ufo.setFoldVirtTextHandler(bufnr, handler)

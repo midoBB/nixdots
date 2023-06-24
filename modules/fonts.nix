@@ -1,5 +1,8 @@
-{ pkgs, colorscheme, ... }:
-let
+{
+  pkgs,
+  colorscheme,
+  ...
+}: let
   variants = {
     design = {
       tilde = "low";
@@ -62,24 +65,10 @@ let
       inherit variants weights slopes;
     };
   };
-  nf-patch = font:
-    pkgs.stdenvNoCC.mkDerivation {
-      pname = "${font.pname}-nerd-font-patched";
-      version = font.version;
-
-      src = font;
-
-      nativeBuildInputs = [ pkgs.nerd-font-patcher ];
-
-      buildPhase = ''
-        mkdir -p $out
-        find -name \*.ttf -exec nerd-font-patcher -o $out/share/fonts/truetype/ -c {} \;
-      '';
-      installPhase = "";
-    };
 in {
   home.packages = with pkgs; [
     iosevka-ss08-term
+    victor-mono
     iosevka-ss08
     pkgs.nur.repos.sagikazarmark.sf-pro
     source-code-pro

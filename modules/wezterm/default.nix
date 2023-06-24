@@ -33,20 +33,47 @@
     };
     enable = true;
     extraConfig = ''
-      local wezterm = require("wezterm")
-      return {
-        warn_about_missing_glyphs = false,
-	    harfbuzz_features = {
-		    "cv06=1",
-		    "cv14=1",
-		    "cv32=1",
-		    "ss04=1",
-		    "ss07=1",
-		    "ss09=1",
-	    },
+       local wezterm = require("wezterm")
+       return {
+         warn_about_missing_glyphs = false,
+       harfbuzz_features = {
+       "cv06=1",
+       "cv14=1",
+       "cv32=1",
+       "ss04=1",
+       "ss07=1",
+       "ss09=1",
+       },
         font_size = 13.0,
-        front_end = "WebGpu",
         font = wezterm.font("Iosevka Term"),
+        font_rules = {
+          {
+            intensity = 'Bold',
+            italic = true,
+            font = wezterm.font {
+              family = 'VictorMono',
+              weight = 'Bold',
+              style = 'Italic',
+            },
+          },
+          {
+            italic = true,
+            intensity = 'Half',
+            font = wezterm.font {
+              family = 'VictorMono',
+              weight = 'DemiBold',
+              style = 'Italic',
+            },
+          },
+          {
+            italic = true,
+            intensity = 'Normal',
+            font = wezterm.font {
+              family = 'VictorMono',
+              style = 'Italic',
+            },
+          },
+        },
         check_for_updates = false,
         show_update_window = false,
         window_close_confirmation = 'NeverPrompt',
