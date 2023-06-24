@@ -207,6 +207,7 @@ function plugin_opts(plugin)
   end
   return opts
 end
+
 function OpenQF()
   local qf_name = "quickfix"
   local qf_empty = function()
@@ -476,7 +477,7 @@ require("lazy").setup({
     "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
-  { "kevinhwang91/nvim-bqf", ft = "qf" },
+  { "kevinhwang91/nvim-bqf",        ft = "qf" },
   { "mrjones2014/smart-splits.nvim" },
   {
     "tummetott/reticle.nvim",
@@ -533,10 +534,10 @@ require("lazy").setup({
       return {
         enabled = function()
           local dap_prompt = is_available("cmp-dap") -- add interoperability with cmp-dap
-            and vim.tbl_contains(
-              { "dap-repl", "dapui_watches", "dapui_hover" },
-              vim.api.nvim_get_option_value("filetype", { buf = 0 })
-            )
+              and vim.tbl_contains(
+                { "dap-repl", "dapui_watches", "dapui_hover" },
+                vim.api.nvim_get_option_value("filetype", { buf = 0 })
+              )
           if vim.api.nvim_get_option_value("buftype", { buf = 0 }) == "prompt" and not dap_prompt then
             return false
           end
@@ -603,9 +604,9 @@ require("lazy").setup({
         },
         sources = cmp.config.sources({
           { name = "nvim_lsp", priority = 1000 },
-          { name = "luasnip", priority = 750 },
-          { name = "buffer", priority = 500 },
-          { name = "path", priority = 250 },
+          { name = "luasnip",  priority = 750 },
+          { name = "buffer",   priority = 500 },
+          { name = "path",     priority = 250 },
         }),
       }
     end,
@@ -653,11 +654,11 @@ require("lazy").setup({
         inc_rename = true,
       },
       messages = {
-        enabled = true, -- enables the Noice messages UI
-        view = "mini", -- default view for messages
-        view_error = "mini", -- view for errors
-        view_warn = "mini", -- view for warnings
-        view_history = "messages", -- view for :messages
+        enabled = true,              -- enables the Noice messages UI
+        view = "mini",               -- default view for messages
+        view_error = "mini",         -- view for errors
+        view_warn = "mini",          -- view for warnings
+        view_history = "messages",   -- view for :messages
         view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
       },
       routes = {
@@ -830,7 +831,7 @@ require("lazy").setup({
       vim.cmd.colorscheme("rose-pine")
     end,
   },
-  { "tiagovla/scope.nvim", opts = {} },
+  { "tiagovla/scope.nvim",  opts = {} },
   {
     "roobert/bufferline-cycle-windowless.nvim",
     dependencies = {
@@ -847,12 +848,11 @@ require("lazy").setup({
   { "ojroques/nvim-bufdel" },
   { "famiu/bufdelete.nvim" },
   { "b0o/incline.nvim" },
-  { "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
+  { "akinsho/bufferline.nvim",            version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
   { "lukas-reineke/indent-blankline.nvim" },
   {
     "numToStr/Comment.nvim",
     opts = {
-
       mappings = {
         extra = true,
       },
@@ -1017,7 +1017,7 @@ local function get_diagnostic_label(props)
     })
     if n > 0 then
       local fg = "#"
-        .. string.format("%06x", vim.api.nvim_get_hl_by_name("DiagnosticSign" .. severity, true)["foreground"])
+          .. string.format("%06x", vim.api.nvim_get_hl_by_name("DiagnosticSign" .. severity, true)["foreground"])
       table.insert(label, {
         icon .. " " .. n .. " ",
         guifg = fg,
@@ -1434,3 +1434,12 @@ ufo.setup({
 })
 local bufnr = vim.api.nvim_get_current_buf()
 ufo.setFoldVirtTextHandler(bufnr, handler)
+
+
+-- Make nvim transparent
+function ColorMyPencils(color)
+  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+end
+
+ColorMyPencils()

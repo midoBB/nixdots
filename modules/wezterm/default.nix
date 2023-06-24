@@ -34,8 +34,36 @@
     enable = true;
     extraConfig = ''
        local wezterm = require("wezterm")
+       local dimmer = { brightness = 0.1 }
+      local function getRandomWallpaperPath()
+        local directory = os.getenv("HOME") .. "/.local/share/wallpapers/wallpapers/"
+        local files = {}
+
+        -- Iterate over files in the directory
+        for file in io.popen('ls "' .. directory .. '"'):lines() do
+          table.insert(files, file)
+        end
+
+        -- Check if any files were found
+        if #files > 0 then
+          -- Select a random file from the list
+          local randomIndex = math.random(1, #files)
+          return directory .. files[randomIndex]
+        else
+          return nil -- No files found
+        end
+      end
        return {
          warn_about_missing_glyphs = false,
+
+       background = {
+        -- This is the deepest/back-most layer. It will be rendered first
+        {
+          source = {
+            File = getRandomWallpaperPath(),
+          },
+          hsb = dimmer,
+       }},
        cell_width = 1.09,
        harfbuzz_features = {
        "cv06=1",
