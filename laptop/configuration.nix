@@ -7,19 +7,23 @@
   # Get me proprietary packages
   nixpkgs.config.allowUnfree = true;
 
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-    timeout = 1;
-    efi.efiSysMountPoint = "/boot"; # ← use the same mount point here.
-    grub = {
-      devices = ["nodev"];
-      efiSupport = true;
-      enable = true;
+  boot = {
+    loader = {
+      efi.canTouchEfiVariables = true;
+      timeout = 1;
+      efi.efiSysMountPoint = "/boot"; # ← use the same mount point here.
+      grub = {
+        devices = ["nodev"];
+        efiSupport = true;
+        enable = true;
+      };
     };
+    kernelModules = ["i2c-dev" "i2c-piix4" "kvm-amd"];
+    initrd.kernelModules = ["amdgpu"];
+    initrd.systemd.enable = true;
+    kernelParams = ["quiet"];
   };
 
-  boot.kernelModules = ["i2c-dev" "i2c-piix4" "kvm-amd"];
-  boot.initrd.kernelModules = ["amdgpu"];
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
