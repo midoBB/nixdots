@@ -1,15 +1,14 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   boot.plymouth.enable = true;
   programs.dconf.enable = true;
   console.keyMap = "fr";
 
   services.dbus = {
     enable = true;
-    packages = [ pkgs.dconf ];
+    packages = [pkgs.dconf];
   };
   services.xserver = {
-    desktopManager = { mate.enable = true; };
+    desktopManager = {mate.enable = true;};
     displayManager.defaultSession = "mate";
     windowManager.i3 = {
       enable = true;
@@ -20,6 +19,19 @@
     #   enable = true;
     #   enableContribAndExtras = true;
     # };
+  };
+  # Lock the system when going into a sleep mode
+  systemd.services.screenlocker = {
+    enable = true;
+    description = "Make extra sure to lock the screen when suspending";
+    unitConfig = {
+      Type = "oneshot";
+      User = "root";
+    };
+    serviceConfig = {
+      ExecStart = "${pkgs.systemd}/bin/loginctl lock-sessions";
+    };
+    wantedBy = ["suspend.target"];
   };
   programs.seahorse.enable = true;
   security = {
@@ -61,7 +73,7 @@
     icons.enable = true;
     menus.enable = true;
     mime.enable = true;
-    portal = { enable = true; };
+    portal = {enable = true;};
   };
   fonts.fonts = with pkgs; [
     # Fonts
@@ -73,17 +85,15 @@
     font-awesome
     font-awesome_5
     (nerdfonts.override {
-      fonts = [  "NerdFontsSymbolsOnly"  "Hack" ];
+      fonts = ["NerdFontsSymbolsOnly" "Hack"];
     })
   ];
   nix = {
     settings = {
       auto-optimise-store = true; # Optimise syslinks
-      experimental-features =
-        [ "nix-command" "flakes" ]; # enable nix command and flakes
-      trusted-users = [ "root" "mh" ];
-      substituters =
-        [ "https://nix-community.cachix.org" "https://midobbdots.cachix.org" ];
+      experimental-features = ["nix-command" "flakes"]; # enable nix command and flakes
+      trusted-users = ["root" "mh"];
+      substituters = ["https://nix-community.cachix.org" "https://midobbdots.cachix.org"];
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "midobbdots.cachix.org-1:LrxKMSxUgZaR7t7PWz3+sKwgxnhanbmv/rAL9RMS8II="
@@ -99,13 +109,17 @@
   # KDE connect shit
   networking.firewall = {
     enable = false;
-    allowedTCPPortRanges = [{
-      from = 1714;
-      to = 1764;
-    }];
-    allowedUDPPortRanges = [{
-      from = 1714;
-      to = 1764;
-    }];
+    allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
+    allowedUDPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
   };
 }
