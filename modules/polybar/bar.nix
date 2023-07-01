@@ -20,7 +20,7 @@
     font-2 = Noto Color Emoji:fontformat=truetype:scale=10:antialias=false;2
     font-3 = MesloLGS NF:style=Regular:pixelsize=10;2
     modules-left = i3
-    modules-center = wmclass mpris
+    modules-center = title mpris
     modules-right = backlight-acpi pulseaudio wlan battery date powermenu
     tray-position = right
     tray-padding = 1

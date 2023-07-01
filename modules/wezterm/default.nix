@@ -34,7 +34,7 @@
     enable = true;
     extraConfig = ''
        local wezterm = require("wezterm")
-       local dimmer = { brightness = 0.5 }
+       local dimmer = { brightness = 0.05 }
       local function getRandomWallpaperPath()
         local directory = os.getenv("HOME") .. "/.local/share/wallpapers/wallpapers/"
         local files = {}

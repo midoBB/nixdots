@@ -11,7 +11,6 @@
         sponsorblock
         ublock-origin
         darkreader
-        vimium-c
         bitwarden
         tampermonkey
         pkgs.myff.imagus
