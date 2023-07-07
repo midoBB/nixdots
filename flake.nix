@@ -110,7 +110,7 @@
     in {
       nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ ./laptop/configuration.nix ./modules/system-services.nix ];
+        modules = [ ./laptop/configuration.nix ./modules/system-services.nix ./modules/gaming.nix ];
       };
 
       nixosConfigurations.work = nixpkgs.lib.nixosSystem {

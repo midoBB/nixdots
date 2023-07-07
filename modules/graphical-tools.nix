@@ -19,6 +19,8 @@
         jetbrains.idea-community
       ]
       else [
+        rawtherapee
+        krita
         birdtray
         thunderbird-bin
         jetbrains.idea-ultimate
