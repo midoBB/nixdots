@@ -20,6 +20,7 @@
       ]
       else [
         rawtherapee
+        digikam
         krita
         birdtray
         thunderbird-bin
