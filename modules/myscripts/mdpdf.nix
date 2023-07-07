@@ -9,9 +9,11 @@
       hyperref
       tcolorbox
       enumitem
+      pdfcol
+      framed
+      xltxtra
+      realscripts
       ;
-    #(setq org-latex-compiler "lualatex")
-    #(setq org-preview-latex-default-process 'dvisvgm)
   };
   mdpdf = pkgs.writeScriptBin "mdpdf" ''
     #!/usr/bin/env bash
@@ -27,8 +29,7 @@
         -V urlcolor=teal \
         -V filecolor=magenta \
         -s \
-        "$1" -o "$path/$name.pdf"
-    xdg-open "$path/$name.pdf"
+        "$1" -o "$path/$name.pdf" && xdg-open "$path/$name.pdf"
   '';
 in {
   home.packages = [mdpdf tex pkgs.coreutils pkgs.pandoc pkgs.fd pkgs.xdg-utils];
