@@ -19,7 +19,6 @@
         pkgs.myff."12ft-ladder-for-firefox"
         enhancer-for-youtube
         i-dont-care-about-cookies
-        bypass-paywalls-clean
         markdownload
         reddit-enhancement-suite
         sourcegraph

@@ -21,17 +21,16 @@
       # docker
       docker
       # JavaScript
-      pkgs-unstable.nodejs
+      nodejs_18
       yarn
-      nodePackages.pnpm
       # python
       (python3.withPackages (ps: with ps; [setuptools pip debugpy virtualenv beautifulsoup4 requests lxml]))
       autoflake
       python3Packages.ipython
-      # rust
-      cargo
-      perl # this is required by rust
-      rustc
+      #  rust
+      # cargo
+      # perl # this is required by rust
+      # rustc
     ]
     ++ (
       if workMode
@@ -53,12 +52,12 @@
         stylua
         lua
         #java
-        temurin-bin
-        #elixir
-        erlangR25
-        elixir_1_14
-        libnotify
-        inotify-tools
+        graalvm17-ce
+        # elixir
+        # erlangR25
+        # elixir_1_14
+        # libnotify
+        # inotify-tools
         # go
         # go
         # golangci-lint

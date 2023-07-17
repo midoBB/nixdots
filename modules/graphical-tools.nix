@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-unstable,
   config,
   workMode,
   ...
@@ -9,7 +10,6 @@
       obsidian
       mate.engrampa
       synology-drive-client
-      microsoft-edge
       google-chrome
     ]
     ++ (
@@ -23,12 +23,12 @@
         digikam
         krita
         birdtray
-        thunderbird-bin
+        pkgs-unstable.thunderbird-bin
         jetbrains.idea-ultimate
         jetbrains.datagrip
         postman
         # office suite
-        wpsoffice
+        libreoffice
         #ereader software
         calibre
         # gaming
@@ -37,7 +37,7 @@
         transmission-gtk
       ]
     );
-  xdg.configFile."microsoft-edge/NativeMessagingHosts/net.downloadhelper.coapp.json".source =
-    config.lib.file.mkOutOfStoreSymlink "${pkgs.nur.repos.wolfangaukang.vdhcoapp}/etc/opt/chrome/native-messaging-hosts/net.downloadhelper.coapp.json";
+  /* xdg.configFile."microsoft-edge/NativeMessagingHosts/net.downloadhelper.coapp.json".source =
+    config.lib.file.mkOutOfStoreSymlink "${pkgs.nur.repos.wolfangaukang.vdhcoapp}/etc/opt/chrome/native-messaging-hosts/net.downloadhelper.coapp.json"; */
   home.file.".ideavimrc".source = ./programming/ideavimrc.txt;
 }

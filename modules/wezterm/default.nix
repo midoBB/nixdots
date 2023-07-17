@@ -73,8 +73,8 @@
        "ss07=1",
        "ss09=1",
        },
-        font_size = 13.0,
-        font = wezterm.font("Iosevka Term"),
+        font_size = 12.0,
+        font = wezterm.font("JetBrains Mono"),
         font_rules = {
           {
             intensity = 'Bold',
@@ -106,7 +106,7 @@
         check_for_updates = false,
         show_update_window = false,
         window_close_confirmation = 'NeverPrompt',
-        color_scheme = "tokyonight",
+        color_scheme = "Breeze (Gogh)",
         enable_tab_bar = false,
         window_padding = {
             left = 8,

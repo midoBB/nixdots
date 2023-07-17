@@ -67,9 +67,9 @@
   };
 in {
   home.packages = with pkgs; [
-    iosevka-ss08-term
+    # iosevka-ss08-term
     victor-mono
-    iosevka-ss08
+    # iosevka-ss08
     pkgs.nur.repos.sagikazarmark.sf-pro
     source-code-pro
     cantarell-fonts

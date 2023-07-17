@@ -242,7 +242,7 @@ myTerminal :: String
 myTerminal = "wezterm" -- Sets default terminal
 
 myBrowser :: String
-myBrowser = "microsoft-edge" -- Sets qutebrowser as browser
+myBrowser = "firefox" -- Sets qutebrowser as browser
 
 myEditor :: String
 myEditor = myTerminal ++ " -e vi " -- Sets vim as editor
@@ -402,7 +402,7 @@ myKeys =
     ("M-S-<Return>", XMonad.spawn "rofi -no-lazy-grab -show drun -modi drun -theme kde_launcher"), -- Dmenu
     ("M-S-d", XMonad.spawn "rofi -no-lazy-grab -show drun -modi drun -theme kde_launcher"), -- Dmenu
     ("M-<Return>", XMonad.spawn "switchto 'wezterm' 'org.wezfurlong.wezterm'"),
-    ("M-b", XMonad.spawn "switchto 'microsoft-edge' 'Microsoft-edge'"),
+    ("M-b", XMonad.spawn "switchto 'firefox' 'firefox'"),
     ("M-d", XMonad.spawn "alacritty  -e ff.sh"),
     ("M-s", XMonad.spawn "alacritty  -e fd.sh"),
     ("M-g", XMonad.spawn "switchto 'pcmanfm-qt' 'pcmanfm-qt'"),

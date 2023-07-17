@@ -13,6 +13,7 @@
   cpv = "rsync -ah --info=progress2";
   mkdir = "mkdir -pv";
   o = "xdg-open";
+  cpc="xclip -sel c < ";
   tm = "tmux attach || tmux";
   guncommit = "git reset --soft HEAD^";
   gd = "git diff";
