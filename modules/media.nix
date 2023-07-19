@@ -19,10 +19,10 @@
       hwdec = "auto";
       vo = "gpu";
       profile = "gpu-hq";
-      slang = "en";
       alang = "en";
       keep-open = "yes";
       keepaspect-window = "no";
+      slang="eng,en,en-en,en-orig,en-en-nP7-2PuUl7o,fra,fre,fr,fr-en,fr-it,fr-en-nP7-2PuUl7o";
     };
     bindings = {
       WHEEL_RIGHT = "seek  5 exact";
