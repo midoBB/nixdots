@@ -23,6 +23,12 @@
       keep-open = "yes";
       keepaspect-window = "no";
       slang="eng,en,en-en,en-orig,en-en-nP7-2PuUl7o,fra,fre,fr,fr-en,fr-it,fr-en-nP7-2PuUl7o";
+      sub-font="Arial Regular";
+      sub-border-size=1;
+      sub-color="#CDCDCD";
+      sub-shadow=3;
+      sub-shadow-color="#000000";
+      sub-shadow-offset=2;
     };
     bindings = {
       WHEEL_RIGHT = "seek  5 exact";

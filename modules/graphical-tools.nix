@@ -1,7 +1,6 @@
 {
   pkgs,
   pkgs-unstable,
-  config,
   workMode,
   ...
 }: {
@@ -35,9 +34,13 @@
         steam-run
         #torrent
         transmission-gtk
+        #virtual machine
+        pkgs-unstable.quickemu
       ]
     );
-  /* xdg.configFile."microsoft-edge/NativeMessagingHosts/net.downloadhelper.coapp.json".source =
-    config.lib.file.mkOutOfStoreSymlink "${pkgs.nur.repos.wolfangaukang.vdhcoapp}/etc/opt/chrome/native-messaging-hosts/net.downloadhelper.coapp.json"; */
+  /*
+   xdg.configFile."microsoft-edge/NativeMessagingHosts/net.downloadhelper.coapp.json".source =
+  config.lib.file.mkOutOfStoreSymlink "${pkgs.nur.repos.wolfangaukang.vdhcoapp}/etc/opt/chrome/native-messaging-hosts/net.downloadhelper.coapp.json";
+  */
   home.file.".ideavimrc".source = ./programming/ideavimrc.txt;
 }
