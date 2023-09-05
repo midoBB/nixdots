@@ -11,20 +11,20 @@
   imports = [(modulesPath + "/installer/scan/not-detected.nix")];
 
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
-  boot.kernelPackages = pkgs.linuxPackages_6_1;
+  boot.kernelPackages = pkgs.linuxPackages_6_5;
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [pkgs.linuxKernel.packages.linux_6_1.system76-power];
   boot.extraModprobeConfig = "options bluetooth disable_ertm=1 "; # This is to allow Xbox controller to work
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/e510553f-4d4d-4587-82a3-fe1a6c667088";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/e510553f-4d4d-4587-82a3-fe1a6c667088";
+    fsType = "ext4";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/9C66-0BCD";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/9C66-0BCD";
+    fsType = "vfat";
+  };
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
