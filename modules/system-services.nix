@@ -69,7 +69,6 @@
     udisks2.enable = true;
     devmon.enable = true;
     touchegg.enable = true;
-    flatpak.enable = true;
   };
   xdg = {
     autostart.enable = true;

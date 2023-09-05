@@ -76,6 +76,7 @@
 
   xdg = {
     configFile."pcmanfm-qt/default/settings.conf".source = ./pcmanfm-qt.conf;
+    configFile."touchegg/touchegg.conf".source = ./touchegg.conf;
     enable = true;
     mimeApps = {
       enable = true;
