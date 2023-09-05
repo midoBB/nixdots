@@ -27,6 +27,7 @@
       import pkgs {
         inherit system;
         config.allowUnfree = true;
+        config.input-fonts.acceptLicense = true;
         overlays = extraOverlays;
       };
     master = mkPkgs nixpkgs-master [];
@@ -51,6 +52,7 @@
       nixpkgs.config = {
         allowUnfree = true;
         allowUnfreePredicate = pkg: true;
+        input-fonts.acceptLicense = true;
         permittedInsecurePackages = ["openssl-1.1.1u" "electron-21.4.0"];
       };
 

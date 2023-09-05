@@ -2,24 +2,6 @@
   boot.plymouth.enable = true;
   programs.dconf.enable = true;
   console.keyMap = "fr";
-
-  services.dbus = {
-    enable = true;
-    packages = [pkgs.dconf];
-  };
-  services.xserver = {
-    desktopManager = {mate.enable = true;};
-    displayManager.defaultSession = "mate";
-    windowManager.i3 = {
-      enable = true;
-      package = pkgs.i3-gaps;
-    };
-
-    # windowManager.xmonad = {
-    #   enable = true;
-    #   enableContribAndExtras = true;
-    # };
-  };
   # Lock the system when going into a sleep mode
   systemd.services.screenlocker = {
     enable = true;
@@ -63,11 +45,32 @@
     QT_STYLE_OVERRIDE = "kvantum";
     QT_QPA_PLATFORMTHEME = "qt5ct";
   };
-  services.xbanish.enable = true; # Hide cursor when typing
-  # These are needed for PCman FM and for distant shares
-  services.gvfs.enable = true;
-  services.udisks2.enable = true;
-  services.devmon.enable = true;
+  services = {
+    dbus = {
+      enable = true;
+      packages = [pkgs.dconf];
+    };
+    xserver = {
+      desktopManager = {mate.enable = true;};
+      displayManager.defaultSession = "mate";
+      windowManager.i3 = {
+        enable = true;
+        package = pkgs.i3-gaps;
+      };
+
+      # windowManager.xmonad = {
+      #   enable = true;
+      #   enableContribAndExtras = true;
+      # };
+    };
+    xbanish.enable = true; # Hide cursor when typing
+    # These are needed for PCman FM and for distant shares
+    gvfs.enable = true;
+    udisks2.enable = true;
+    devmon.enable = true;
+    touchegg.enable = true;
+    flatpak.enable = true;
+  };
   xdg = {
     autostart.enable = true;
     icons.enable = true;

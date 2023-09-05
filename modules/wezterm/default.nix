@@ -74,7 +74,7 @@
        "ss09=1",
        },
         font_size = 12.0,
-        font = wezterm.font("JetBrains Mono"),
+        font = wezterm.font("Input Mono"),
         font_rules = {
           {
             intensity = 'Bold',

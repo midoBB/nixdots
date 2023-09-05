@@ -69,6 +69,7 @@ in {
   home.packages = with pkgs; [
     # iosevka-ss08-term
     victor-mono
+    input-fonts
     # iosevka-ss08
     pkgs.nur.repos.sagikazarmark.sf-pro
     source-code-pro

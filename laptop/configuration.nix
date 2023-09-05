@@ -9,14 +9,9 @@
 
   boot = {
     loader = {
+        # Bootloader.
+      systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
-      timeout = 1;
-      efi.efiSysMountPoint = "/boot"; # ← use the same mount point here.
-      grub = {
-        devices = ["nodev"];
-        efiSupport = true;
-        enable = true;
-      };
     };
     kernelModules = ["i2c-dev" "i2c-piix4" "kvm-amd"];
     initrd.kernelModules = ["amdgpu"];
