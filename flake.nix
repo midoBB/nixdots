@@ -95,7 +95,6 @@
         ./modules/fonts.nix
       ];
     };
-
     home-laptop = {
       _module.args.workMode = false;
       imports = [
