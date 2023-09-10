@@ -10,6 +10,11 @@
     };
     nur.url = "github:nix-community/NUR";
     ffplug.url = "github:midoBB/myFirefoxPlugins";
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
   };
   outputs = {
     self,
@@ -18,6 +23,8 @@
     nixpkgs-unstable,
     nixpkgs-master,
     home-manager,
+    nix-index-database,
+    nix-doom-emacs,
     ffplug,
   }: let
     system = "x86_64-linux";
@@ -52,8 +59,9 @@
       nixpkgs.config = {
         allowUnfree = true;
         allowUnfreePredicate = pkg: true;
+        allowBroken = true;
         input-fonts.acceptLicense = true;
-        permittedInsecurePackages = ["openssl-1.1.1u" "electron-21.4.0"];
+        permittedInsecurePackages = ["openssl-1.1.1u" "openssl-1.1.1v" "electron-21.4.0"];
       };
 
       nixpkgs.overlays = [
@@ -93,6 +101,7 @@
         ./modules/polybar
         ./modules/autorandr
         ./modules/fonts.nix
+        nix-doom-emacs.hmModule
       ];
     };
     home-laptop = {
@@ -116,7 +125,7 @@
   in {
     nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
       inherit system;
-      modules = [./laptop/configuration.nix ./modules/system-services.nix ./modules/gaming.nix];
+      modules = [./laptop/configuration.nix ./modules/system-services.nix];
     };
 
     nixosConfigurations.work = nixpkgs.lib.nixosSystem {
@@ -126,12 +135,12 @@
     homeConfigurations = {
       laptop = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [home-common home-laptop];
+        modules = [home-common home-laptop nix-index-database.hmModules.nix-index];
         extraSpecialArgs = {inherit pkgs-unstable;};
       };
       work = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [home-common home-work];
+        modules = [home-common home-work nix-index-database.hmModules.nix-index];
         extraSpecialArgs = {inherit pkgs-unstable;};
       };
     };

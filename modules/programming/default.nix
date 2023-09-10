@@ -1,18 +1,26 @@
 {
   config,
-  pkgs-unstable,
   pkgs,
   workMode,
   ...
 }: {
   imports = [./lsps.nix];
-  programs.go = { #I hate the default go folder
+  programs.doom-emacs = {
     enable = true;
-    package = if workMode then pkgs.go_1_18 else pkgs.go;
+    doomPrivateDir = ./doom.d; # Directory containing your config.el, init.el
+    # and packages.el files
+  };
+  programs.go = {
+    #I hate the default go folder
+    enable = true;
+    package =
+      if workMode
+      then pkgs.go_1_18
+      else pkgs.go;
     goBin = ".go/bin";
     goPath = ".go";
   };
-  home.sessionPath = [ config.home.sessionVariables.GOBIN ];
+  home.sessionPath = [config.home.sessionVariables.GOBIN];
   home.packages = with pkgs;
     [
       # C

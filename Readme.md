@@ -50,6 +50,7 @@ or parts of it setup on any system.
 - Run system configuration
 - Run home manager configuration
 - After all said and done import treestyletab json to Firefox
+
 ```bash
   nix-shell -p curl git ansible gnutar
   git clone https://github.com/midoBB/nixdots.git

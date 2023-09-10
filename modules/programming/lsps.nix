@@ -15,7 +15,7 @@
     nodePackages.bash-language-server
     shellcheck
     nodePackages.dockerfile-language-server-nodejs
-    hadolint
+    # hadolint
     gopls
     reftools
     impl

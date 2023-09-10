@@ -22,7 +22,7 @@
     python310Packages.python-lsp-server # todo: is specifying 310 an issue?
     nodePackages.bash-language-server
     nodePackages.dockerfile-language-server-nodejs
-    hadolint
+    # hadolint
     gopls
     reftools
     impl
