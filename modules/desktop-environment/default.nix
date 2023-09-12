@@ -1,9 +1,5 @@
-{
-  pkgs,
-  workMode,
-  ...
-}: {
-  imports = [./dconf.nix ./themes.nix];
+{ pkgs, workMode, ... }: {
+  imports = [ ./dconf.nix ./themes.nix ./discord.nix ];
   services = {
     blueman-applet.enable = true;
     network-manager-applet.enable = true;
@@ -60,6 +56,7 @@
     xorg.xkill
     xclip
     xsel
+    xdotool
     # Sound control panel
     pavucontrol
     indicator-sound-switcher

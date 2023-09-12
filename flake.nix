@@ -14,7 +14,6 @@
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
   };
   outputs = {
     self,
@@ -24,7 +23,6 @@
     nixpkgs-master,
     home-manager,
     nix-index-database,
-    nix-doom-emacs,
     ffplug,
   }: let
     system = "x86_64-linux";
@@ -101,7 +99,6 @@
         ./modules/polybar
         ./modules/autorandr
         ./modules/fonts.nix
-        nix-doom-emacs.hmModule
       ];
     };
     home-laptop = {

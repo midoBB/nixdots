@@ -5,10 +5,11 @@
   ...
 }: {
   imports = [./lsps.nix];
-  programs.doom-emacs = {
+  services.emacs = {
     enable = true;
-    doomPrivateDir = ./doom.d; # Directory containing your config.el, init.el
-    # and packages.el files
+    package = pkgs.emacs29;
+    client.enable = true;
+    startWithUserSession = "graphical";
   };
   programs.go = {
     #I hate the default go folder

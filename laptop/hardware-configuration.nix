@@ -17,12 +17,12 @@
   boot.extraModulePackages = [pkgs.linuxKernel.packages.linux_6_1.system76-power];
   boot.extraModprobeConfig = "options bluetooth disable_ertm=1 "; # This is to allow Xbox controller to work
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/e510553f-4d4d-4587-82a3-fe1a6c667088";
+    device = "/dev/disk/by-label/NIXROOT";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/9C66-0BCD";
+    device = "/dev/disk/by-label/NIXBOOT";
     fsType = "vfat";
   };
 
