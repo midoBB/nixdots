@@ -37,9 +37,5 @@
     # YAML
     nodePackages.yaml-language-server
     yamllint
-    #Kotlin
-    kotlin-language-server
-    ktlint
-    kotlin
   ];
 }

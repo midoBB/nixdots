@@ -5,12 +5,6 @@
   ...
 }: {
   imports = [./lsps.nix];
-  services.emacs = {
-    enable = true;
-    package = pkgs.emacs29;
-    client.enable = true;
-    startWithUserSession = "graphical";
-  };
   programs.go = {
     #I hate the default go folder
     enable = true;
