@@ -52,12 +52,12 @@
     };
     xserver = {
       desktopManager = {mate.enable = true;};
+      displayManager.lightdm.background = ./wallpapers/files/nix-wallpaper-stripes-logo.png;
       displayManager.defaultSession = "mate";
       windowManager.i3 = {
         enable = true;
         package = pkgs.i3-gaps;
       };
-
       # windowManager.xmonad = {
       #   enable = true;
       #   enableContribAndExtras = true;
