@@ -3,7 +3,6 @@
   "extensions.autoDisableScopes" = 0;
   "browser.startup.homepage_override.mstone" = "ignore";
   "browser.newtabpage.introShown" = false;
-  "extensions.pocket.enabled" = false;
   "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
   "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSite" =
     false;

@@ -1,6 +1,8 @@
 {pkgs-unstable, ...}: {
   programs.neovim = {
+    package = pkgs-unstable.neovim-unwrapped;
     enable = true;
+    withNodeJs = true;
     plugins = [
       pkgs-unstable.vimPlugins.nvim-treesitter.withAllGrammars
       pkgs-unstable.vimPlugins.lazy-nvim
@@ -45,7 +47,6 @@
     # YAML
     nodePackages.yaml-language-server
     yamllint
-    elixir-ls
     fzy
   ];
   # xdg.configFile."nvim/init.lua".source = ./init.lua;

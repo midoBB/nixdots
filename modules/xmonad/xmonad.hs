@@ -268,7 +268,6 @@ myStartupHook = do
   spawnOnce "matedpi"
   spawnOnce "mate-power-manager &"
   XMonad.Util.Cursor.setDefaultCursor XMonad.xC_left_ptr
-  spawnOnce "feh --randomize --bg-fill ~/.local/share/wallpapers/*"
   setWMName "LG3D"
 
 -- Makes setting the spacingRaw simpler to write. The spacingRaw module adds a configurable amount of space around windows.

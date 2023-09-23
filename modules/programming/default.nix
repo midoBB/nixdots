@@ -30,6 +30,7 @@
       (python3.withPackages (ps: with ps; [setuptools pip debugpy virtualenv beautifulsoup4 requests lxml]))
       autoflake
       python3Packages.ipython
+      vscode.fhs
       #  rust
       # cargo
       # perl # this is required by rust
@@ -48,7 +49,6 @@
         protoc-gen-go
         grpcui
         gitflow
-        vscode.fhs
       ]
       else [
         # lua
@@ -56,6 +56,11 @@
         lua
         #java
         graalvm17-ce
+        # Clojure
+        leiningen
+        clojure
+        clj-kondo
+        clojure-lsp
         # elixir
         # erlangR25
         # elixir_1_14

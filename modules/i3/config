@@ -174,7 +174,6 @@ smart_borders on
 
 
 exec --no-startup-id dex --autostart --environment i3
-exec_always feh --randomize --bg-fill ~/.local/share/wallpapers/*
 exec --no-startup-id redshift-gtk -l 36:10
 exec --no-startup-id kdeconnect-indicator
 exec --no-startup-id birdtray

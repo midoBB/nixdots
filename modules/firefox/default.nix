@@ -14,7 +14,6 @@
         bitwarden
         tampermonkey
         pkgs.myff.imagus
-        pkgs.myff.instapaper-official
         pkgs.myff.video-downloadhelper
         pkgs.myff."12ft-ladder-for-firefox"
         enhancer-for-youtube
