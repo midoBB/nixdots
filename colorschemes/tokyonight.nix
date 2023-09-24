@@ -1,4 +1,5 @@
-let utils = import ./utils.nix;
+let
+  utils = import ./utils.nix;
 in rec {
   name = "tokyonight";
 

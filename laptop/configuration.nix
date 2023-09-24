@@ -9,7 +9,7 @@
 
   boot = {
     loader = {
-        # Bootloader.
+      # Bootloader.
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };

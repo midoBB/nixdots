@@ -1,8 +1,12 @@
-{ pkgs, colorscheme, ... }: {
+{
+  pkgs,
+  colorscheme,
+  ...
+}: {
   programs.alacritty = {
     enable = true;
     settings = {
-      env = { "TERM" = "xterm-256color"; };
+      env = {"TERM" = "xterm-256color";};
 
       window = {
         title = "floatt";
@@ -34,12 +38,12 @@
       # You can set `shell.program` to the path of your favorite shell, e.g. `/bin/fish`.
       # Entries in `shell.args` are passed unmodified as arguments to the shell.
       # shell = { program = "/home/mh/.nix-profile/bin/nu"; };
-      shell = { program = "zsh"; };
+      shell = {program = "zsh";};
 
       url = {
         launcher = {
           program = "${pkgs.xdg-utils}/bin/xdg-open";
-          args = [ ];
+          args = [];
           modifiers = "";
         };
       };
@@ -79,7 +83,6 @@
           inherit (colorscheme) cyan;
           inherit (colorscheme) white;
         };
-
       };
     };
   };

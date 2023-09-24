@@ -65,5 +65,6 @@ or parts of it setup on any system.
   ansible-vault encrypt .secrets/*
   sudo nixos-rebuild switch --flake './#laptop'
   nix run home-manager --no-write-lock-file -- switch --flake "./#laptop"
+  nvim --headless "+Lazy! sync" +qa
 ```
 

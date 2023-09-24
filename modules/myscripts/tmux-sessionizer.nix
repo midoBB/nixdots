@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   tmux-sessionizer = pkgs.writeScriptBin "tmux-sessionizer" ''
     #!/usr/bin/env bash
     if [[ $# -eq 1 ]]; then
@@ -32,6 +30,5 @@ let
     tm
   '';
 in {
-  home.packages =
-    [ tmux-sessionizer pkgs.coreutils pkgs.findutils pkgs.fzf pkgs.tmux ];
+  home.packages = [tmux-sessionizer pkgs.coreutils pkgs.findutils pkgs.fzf pkgs.tmux];
 }

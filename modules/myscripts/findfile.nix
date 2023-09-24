@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   ff.sh = pkgs.writeScriptBin "ff.sh" ''
     #!/usr/bin/env bash
     file_to_open=$(fd . ~ --type file | peco)
@@ -17,5 +16,5 @@ in {
       }
     }
   '';
-  home.packages = [ ff.sh pkgs.util-linux pkgs.peco pkgs.fd pkgs.xdg-utils ];
+  home.packages = [ff.sh pkgs.util-linux pkgs.peco pkgs.fd pkgs.xdg-utils];
 }

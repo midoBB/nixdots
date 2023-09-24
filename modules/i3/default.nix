@@ -1,1 +1,1 @@
-{ xdg.configFile."i3/config".source = ./config; }
+{xdg.configFile."i3/config".source = ./config;}

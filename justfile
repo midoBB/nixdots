@@ -1,3 +1,6 @@
+format:
+    stylua **/*.lua
+    alejandra **/*.nix
 user:
     apply-user
 system:

@@ -1,5 +1,9 @@
-{ pkgs, workMode, ... }: {
-  imports = [ ./dconf.nix ./themes.nix ./discord.nix ];
+{
+  pkgs,
+  workMode,
+  ...
+}: {
+  imports = [./dconf.nix ./themes.nix ./discord.nix];
   services = {
     blueman-applet.enable = true;
     network-manager-applet.enable = true;
@@ -14,7 +18,6 @@
   home.packages = with pkgs; [
     # Busybox replacements: As the default ones give out very
     # limited info which is extremely unhelpful when debugging
-    # something
     less
     pciutils
     procps

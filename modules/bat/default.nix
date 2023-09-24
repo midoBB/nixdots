@@ -1,4 +1,4 @@
-{ colorscheme, ... }: {
+{colorscheme, ...}: {
   programs.bat = {
     enable = true;
     config = {

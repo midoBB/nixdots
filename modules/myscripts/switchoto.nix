@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   switchto = pkgs.writeScriptBin "switchto" ''
     #!/usr/bin/env bash
     runcmd="$1"
@@ -13,4 +11,4 @@ let
         while ! switch; do sleep 0.1; done
     fi
   '';
-in { home.packages = [ switchto ]; }
+in {home.packages = [switchto];}

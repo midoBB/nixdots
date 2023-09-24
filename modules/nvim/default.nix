@@ -1,12 +1,53 @@
-{pkgs-unstable, ...}: {
+{
+  pkgs-unstable,
+  pkgs,
+  ...
+}: {
   programs.neovim = {
-    package = pkgs-unstable.neovim-unwrapped;
+    package = pkgs.neovim-unwrapped;
     enable = true;
     withNodeJs = true;
-    plugins = [
-      pkgs-unstable.vimPlugins.nvim-treesitter.withAllGrammars
-      pkgs-unstable.vimPlugins.lazy-nvim
+    /*
+       plugins = [
+        (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
+          p.astro
+          p.bash
+          p.c
+          p.cpp
+          p.clojure
+          p.diff
+          p.dockerfile
+          p.gitcommit
+          p.gitignore
+          p.go
+          p.gomod
+          p.gosum
+          p.haskell
+          p.html
+          p.java
+          p.javascript
+          p.json
+          p.kotlin
+          p.latex
+          p.lua
+          p.markdown
+          p.markdown-inline
+          p.nix
+          p.prisma
+          p.proto
+          p.python
+          p.regex
+          p.ruby
+          p.scala
+          p.sql
+          p.svelte
+          p.toml
+          p.tsx
+          p.typescript
+        ]))
+        pkgs.vimPlugins.lazy-nvim
     ];
+    */
   };
   home.packages = with pkgs-unstable; [
     # pkgs.mynvim
@@ -16,9 +57,8 @@
     prisma-engines # ditto for schema.prisma files
     nil # nix lsp -- better than rnix?
     alejandra # nix formatter alternative
-    statix # linter for nix
     shellcheck
-    pkgs-unstable.lua-language-server
+    lua-language-server
     nodePackages.svelte-language-server
     black
     python310Packages.python-lsp-server # todo: is specifying 310 an issue?

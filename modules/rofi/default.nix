@@ -1,10 +1,13 @@
-{ pkgs, colorscheme, ... }:
-let
+{
+  pkgs,
+  colorscheme,
+  ...
+}: let
   powermenu = pkgs.writeScriptBin "powermenu" ''
     ${builtins.readFile ./powermenu.sh}
   '';
 in {
-  home.packages = [ powermenu ];
+  home.packages = [powermenu];
   programs.rofi = {
     enable = true;
     package = pkgs.rofi;
