@@ -77,7 +77,7 @@
         ./modules/wezterm
         ./modules/alacritty
         ./modules/neofetch
-        ./modules/sioyek.nix
+        ./modules/pdfreader.nix
         ./modules/kitty.nix
         ./modules/wallpapers
         ./modules/bat

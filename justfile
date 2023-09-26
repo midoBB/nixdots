@@ -1,6 +1,6 @@
 format:
-    stylua **/*.lua
     alejandra **/*.nix
+    stylua **/*.lua
 user:
     apply-user
 system:

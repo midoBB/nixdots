@@ -29,6 +29,7 @@
         # steam-run
         #torrent
         transmission-gtk
+        steam-run
       ]
     );
   /*

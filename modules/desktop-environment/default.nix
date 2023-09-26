@@ -88,7 +88,7 @@
         "x-scheme-handler/mid" = "thunderbird.desktop";
       };
       defaultApplications = {
-        "application/pdf" = "sioyek.desktop";
+        "application/pdf" = "org.pwmt.zathura.desktop";
         "application/x-shellscript" = "nvim.desktop";
         "application/x-perl" = "nvim.desktop";
         "application/json" = "nvim.desktop";
