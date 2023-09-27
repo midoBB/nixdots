@@ -1,4 +1,5 @@
 format:
+    #!/usr/bin/env zsh
     alejandra **/*.nix
     stylua **/*.lua
 user:
