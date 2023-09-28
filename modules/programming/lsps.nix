@@ -1,41 +1,62 @@
-{pkgs-unstable, ...}: {
+{pkgs-unstable,pkgs, ...}: {
   home.packages = with pkgs-unstable; [
+    #Mardown and stuff
     vale # linter for prose
     proselint # ditto
-    luaformatter # ditto for lua
-    prisma-engines # ditto for schema.prisma files
+    nodePackages.markdownlint-cli
+    #Nix
     nil # nix lsp -- better than rnix?
     alejandra # nix formatter alternative
     statix # linter for nix
+    #Bash
     shellcheck
-    lua-language-server
-    nodePackages.svelte-language-server
-    black
-    python310Packages.python-lsp-server # todo: is specifying 310 an issue?
+    python311Packages.beautysh
     nodePackages.bash-language-server
-    shellcheck
+    #Lua
+    lua-language-server
+    stylua
+    # Python
+    black
+    python310Packages.python-lsp-server
+    python310Packages.pylsp-rope
+    python310Packages.python-lsp-ruff
+    ruff
+    #Docker
+    pkgs.hadolint
     nodePackages.dockerfile-language-server-nodejs
-    # hadolint
+    #golang
     gopls
-    reftools
-    impl
-    gotools
+    gofumpt
     delve
-    golines
     golangci-lint
-    nodePackages.diagnostic-languageserver
+    gotests
+    reftools
+    gomodifytags
+    # SQL
+    sqls
+    sqlfluff
+    # Protobuf
+    protolint
+    buf-language-server
+    # YAML
+    nodePackages.yaml-language-server
+    yamllint
+    # Json
+    jq
+    #XML
+    html-tidy
+    libxml2
+    /*
+    WEB Dev
+    */
+    #Svelte
+    nodePackages.svelte-language-server
+    #Prisma
+    prisma-engines # ditto for schema.prisma files
     nodePackages."@tailwindcss/language-server"
     nodePackages.vscode-langservers-extracted
     nodePackages.prettier_d_slim
     nodePackages.eslint_d
     nodePackages.typescript-language-server
-    nodePackages.markdownlint-cli
-    sqls
-    sqlfluff
-    jq
-    haskell-language-server
-    # YAML
-    nodePackages.yaml-language-server
-    yamllint
   ];
 }

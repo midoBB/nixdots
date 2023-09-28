@@ -1,13 +1,13 @@
 # `dotfiles`
 
-Here lies the `dotfiles` crafted with much care. Shamelessly stolen from [this repo](https://github.com/sherubthakur/dotfiles) then changed to fit my
+Here lies the `dotfiles` crafted with much care. Shamelessly stolen from [this repository](https://github.com/sherubthakur/dotfiles) then changed to fit my
 needs.
 
 ## Configuration
 
-A glance at what is present in this lair.
+A glance at what's present in this lair.
 
-| Name                     | What I am using (NixOS)                                                  |
+| Name                     | What we're am using (NixOS)                                                  |
 | ------------------------ | ------------------------------------------------------------------------ |
 | OS                       | [NixOS](https://nixos.org/)                                              |
 | Terminal Emulator        | [Wezterm](https://wezfurlong.org/wezterm/)                               |
@@ -25,10 +25,10 @@ A glance at what is present in this lair.
 
 ## Setup
 
-Here is a walkthrough of what are the steps one need to take to get this config
+Here is a walk through of what are the steps one need to take to get this configuration
 or parts of it setup on any system.
 
-### Full Setup of NixOS (first time)
+### Full setup of NixOS (first time)
 
 #### Requirements
 
@@ -41,9 +41,9 @@ or parts of it setup on any system.
 #### Steps
 
 - Install NixOS
-- Make sure you have a way to get this repo. `curl`, `git`, `ansible-vault`.
+- Make sure you have a way to get this repository. `curl`, `git`, `ansible-vault`.
 - Make sure you enable internet
-- Get contents of this repo onto your system to `~/.dotfiles`
+- Get contents of this repository onto your system to `~/.dotfiles`
 - `cd` into `~/.dotfiles`
 - Decrypt the secrets
 - Copy the secrets to the correct places

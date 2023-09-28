@@ -7,5 +7,6 @@
     ./mdpdf.nix
     ./convertvids.nix
     ./convertinbox.nix
+    ./valeinit.nix
   ];
 }

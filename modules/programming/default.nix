@@ -52,7 +52,6 @@
       ]
       else [
         # lua
-        stylua
         lua
         #java
         graalvm17-ce

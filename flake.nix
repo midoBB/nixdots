@@ -3,6 +3,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-23.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nixpkgs-master.url = "nixpkgs/master";
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
@@ -24,6 +25,7 @@
     home-manager,
     nix-index-database,
     ffplug,
+    neovim-nightly-overlay,
   }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
@@ -65,6 +67,7 @@
       nixpkgs.overlays = [
         (_: _: {myff = ffplug.packages.x86_64-linux;})
         nur.overlay
+        neovim-nightly-overlay.overlay
         (self: super: {inherit master;})
       ];
 
