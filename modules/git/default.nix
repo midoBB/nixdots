@@ -25,6 +25,8 @@
       merge.conflictstyle = "diff3";
       credential.helper = "store";
     };
+    lfs.enable = true;
+    ignores = [".direnv" "result"];
   };
 
   programs.gh = {
