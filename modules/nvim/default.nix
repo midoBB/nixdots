@@ -4,7 +4,7 @@
   ...
 }: {
   programs.neovim = {
-    package = pkgs-unstable.neovim-unwrapped;
+    package = pkgs.neovim-nightly;
     enable = true;
     withNodeJs = true;
   };

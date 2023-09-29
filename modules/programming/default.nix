@@ -3,7 +3,9 @@
   pkgs,
   workMode,
   ...
-}: {
+}: let
+  inherit (pkgs.callPackage ./java.nix {}) graalvm21-ce;
+in {
   imports = [./lsps.nix];
   programs.go = {
     #I hate the default go folder
@@ -51,15 +53,11 @@
         gitflow
       ]
       else [
+        graalvm21-ce
         # lua
         lua
-        #java
-        graalvm17-ce
-        # Clojure
         leiningen
         clojure
-        clj-kondo
-        clojure-lsp
         # elixir
         # erlangR25
         # elixir_1_14

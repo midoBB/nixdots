@@ -1,9 +1,14 @@
-{pkgs-unstable,pkgs, ...}: {
+{
+  pkgs-unstable,
+  pkgs,
+  ...
+}: {
   home.packages = with pkgs-unstable; [
     #Mardown and stuff
     vale # linter for prose
     proselint # ditto
-    nodePackages.markdownlint-cli
+    markdownlint-cli2
+    ltex-ls
     #Nix
     nil # nix lsp -- better than rnix?
     alejandra # nix formatter alternative
@@ -58,5 +63,8 @@
     nodePackages.prettier_d_slim
     nodePackages.eslint_d
     nodePackages.typescript-language-server
+    # Clojure
+    clj-kondo
+    clojure-lsp
   ];
 }

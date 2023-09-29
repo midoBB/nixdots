@@ -7,7 +7,7 @@ needs.
 
 A glance at what's present in this lair.
 
-| Name                     | What we're am using (NixOS)                                                  |
+| Name                     | What I am using (NixOS)                                                  |
 | ------------------------ | ------------------------------------------------------------------------ |
 | OS                       | [NixOS](https://nixos.org/)                                              |
 | Terminal Emulator        | [Wezterm](https://wezfurlong.org/wezterm/)                               |
@@ -67,4 +67,3 @@ or parts of it setup on any system.
   nix run home-manager --no-write-lock-file -- switch --flake "./#laptop"
   nvim --headless "+Lazy! sync" +qa
 ```
-
