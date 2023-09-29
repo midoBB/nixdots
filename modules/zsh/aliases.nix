@@ -3,10 +3,10 @@
   gcaam = "git add -A .; git commit -m";
   c = "clear";
   su = "sudo -i";
-  ls = "exa -l --color=always --icons --group-directories-first";
-  la = "exa -al --color=always --icons --group-directories-first";
-  lt = "exa -T  --level 5 --color=always --group-directories-first";
-  left = "exa -l --color=always --icons --group-directories-first --reverse --sort=modified";
+  ls = "eza -l --time-style=relative --color=always --icons --group-directories-first";
+  la = "eza -al --time-style=relative --color=always --icons --group-directories-first";
+  lt = "eza -T  --level 5 --color=always --group-directories-first";
+  left = "eza -l --time-style=relative --color=always --icons --group-directories-first --reverse --sort=modified";
   lsblk = "lsblk -o name,mountpoint,label,size,type,uuid";
   df = "df -h";
   cat = "bat -p";

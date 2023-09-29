@@ -4,7 +4,10 @@
   lib,
   ...
 }: {
-  programs.exa.enable = true;
+  programs.exa = {
+    enable = true;
+    package = pkgs-unstable.eza;
+  };
   programs.nix-index.enable = true;
   programs.atuin = {
     enable = true;
