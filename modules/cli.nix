@@ -11,7 +11,7 @@
     ripgrep
     zoxide
     # system info
-    bottom
+    btop
     # Nix itself
     nix
     doppler
