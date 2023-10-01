@@ -5,7 +5,7 @@
 }: {
   home.packages = with pkgs-unstable; [
     #Mardown and stuff
-    vale # linter for prose
+    glow
     proselint # ditto
     markdownlint-cli2
     ltex-ls
