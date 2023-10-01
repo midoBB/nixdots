@@ -38,7 +38,9 @@
   ];
   environment.mate.excludePackages = with pkgs; [
     mate.pluma
+    /*
     mate.mate-notification-daemon
+    */
   ];
   # Themes for QT apps. Doesn't work in home manager config
   environment.variables = {

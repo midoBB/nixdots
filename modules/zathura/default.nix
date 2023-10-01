@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   programs.zathura = {
     enable = true;
     options = {
@@ -17,11 +17,8 @@
       zoom-min = "10";
     };
 
-    extraConfig = "include catppuccin-mocha";
+    extraConfig = "include tokyonight";
   };
 
-  xdg.configFile."zathura/catppuccin-mocha".source = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/dracula/zathura/master/zathurarc";
-    hash = "sha256-7qNQK104EW1/heux+DW3dUdfRcKdiUQEp+ktiVw60G4=";
-  };
+  xdg.configFile."zathura/tokyonight".source = ./tokyonight.rc;
 }

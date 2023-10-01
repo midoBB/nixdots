@@ -25,18 +25,21 @@
     python310Packages.python-lsp-server
     python310Packages.pylsp-rope
     python310Packages.python-lsp-ruff
+    python310Packages.ruff-lsp
     ruff
     #Docker
     pkgs.hadolint
     nodePackages.dockerfile-language-server-nodejs
     #golang
     gopls
+    go-tools
     gofumpt
     delve
     golangci-lint
     gotests
     reftools
     gomodifytags
+    iferr
     # SQL
     sqls
     sqlfluff
@@ -66,5 +69,7 @@
     # Clojure
     clj-kondo
     clojure-lsp
+    #Generate types for any language from json
+    nodePackages_latest.quicktype
   ];
 }

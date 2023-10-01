@@ -1,36 +1,6 @@
 {
+  xdg.configFile."wezterm/colors/tokyonight.yml".source = ./tokyonight.toml;
   programs.wezterm = {
-    colorSchemes = {
-      tokyonight = {
-        ansi = [
-          "#15161e"
-          "#f7768e"
-          "#9ece6a"
-          "#e0af68"
-          "#7aa2f7"
-          "#bb9af7"
-          "#7dcfff"
-          "#a9b1d6"
-        ];
-        background = "#1a1b26";
-        brights = [
-          "#414868"
-          "#f7768e"
-          "#9ece6a"
-          "#e0af68"
-          "#7aa2f7"
-          "#bb9af7"
-          "#7dcfff"
-          "#c0caf5"
-        ];
-        cursor_bg = "#c0caf5";
-        cursor_border = "#c0caf5";
-        cursor_fg = "#15161e";
-        foreground = "#c0caf5";
-        selection_bg = "#33467c";
-        selection_fg = "#c0caf5";
-      };
-    };
     enable = true;
     extraConfig = ''
        local wezterm = require("wezterm")
@@ -64,6 +34,7 @@
           },
           hsb = dimmer,
        }},
+       color_scheme = "tokyonight",
        cell_width = 1.09,
        harfbuzz_features = {
        "cv06=1",

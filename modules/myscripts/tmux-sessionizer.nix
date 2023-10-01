@@ -12,7 +12,6 @@
     fi
 
     selected_name=$(basename "$selected" | tr . _)
-    # tmux_running=$(pgrep tmux)
     tm() {
       if [ -z "$selected" ]; then
         tmux switch-client -l "$selected_name"

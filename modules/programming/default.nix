@@ -17,12 +17,15 @@ in {
     goBin = ".go/bin";
     goPath = ".go";
   };
+  programs.java = {
+    enable = true;
+    package = graalvm21-ce;
+  };
   home.sessionPath = [config.home.sessionVariables.GOBIN];
   home.packages = with pkgs;
     [
       # C
       gcc
-      #Java
       # docker
       docker
       # JavaScript
@@ -32,7 +35,6 @@ in {
       (python3.withPackages (ps: with ps; [setuptools pip debugpy virtualenv beautifulsoup4 requests lxml]))
       autoflake
       python3Packages.ipython
-      vscode.fhs
       #  rust
       # cargo
       # perl # this is required by rust
@@ -53,7 +55,6 @@ in {
         gitflow
       ]
       else [
-        graalvm21-ce
         # lua
         lua
         leiningen

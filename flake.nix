@@ -80,7 +80,7 @@
         ./modules/wezterm
         ./modules/alacritty
         ./modules/neofetch
-        ./modules/pdfreader.nix
+        ./modules/zathura
         ./modules/kitty.nix
         ./modules/wallpapers
         ./modules/bat
@@ -94,7 +94,9 @@
         ./modules/nvim
         # Desktop Environment
         ./modules/desktop-environment
+        /*
         ./modules/deadd
+        */
         ./modules/rofi
         ./modules/myscripts
         ./modules/i3
