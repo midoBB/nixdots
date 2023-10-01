@@ -94,9 +94,6 @@
         ./modules/nvim
         # Desktop Environment
         ./modules/desktop-environment
-        /*
-        ./modules/deadd
-        */
         ./modules/rofi
         ./modules/myscripts
         ./modules/i3

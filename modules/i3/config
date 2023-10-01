@@ -24,7 +24,7 @@ bindsym Mod4+Shift+d exec rofi -no-lazy-grab -show drun -modi drun -theme kde_la
 bindsym Mod4+b exec switchto 'firefox' 'Firefox'
 bindsym Mod4+d exec alacritty  -e ff.sh
 bindsym Mod4+g exec switchto 'pcmanfm-qt' 'pcmanfm-qt'
-#bindsym Mod4+n exec kill -s USR1 $(pidof deadd-notification-center)
+bindsym Mod4+n exec displayctl
 bindsym Mod4+o exec switchto 'obsidian' 'obsidian'
 bindsym Mod4+q kill
 bindsym Mod4+s exec alacritty  -e fd.sh

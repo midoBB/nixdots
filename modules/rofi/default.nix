@@ -6,8 +6,12 @@
   powermenu = pkgs.writeScriptBin "powermenu" ''
     ${builtins.readFile ./powermenu.sh}
   '';
+
+  displayctl = pkgs.writeScriptBin "displayctl" ''
+    ${builtins.readFile ./displayctl.sh}
+  '';
 in {
-  home.packages = [powermenu];
+  home.packages = [powermenu displayctl];
   programs.rofi = {
     enable = true;
     package = pkgs.rofi;
