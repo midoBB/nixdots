@@ -1,11 +1,11 @@
 return {
 
-  { 'gbprod/stay-in-place.nvim', event = 'BufWinEnter', opts = {} },
+  { "gbprod/stay-in-place.nvim", event = "BufWinEnter", opts = {} },
   {
-    'gbprod/yanky.nvim',
-    event = 'BufWinEnter',
+    "gbprod/yanky.nvim",
+    event = "BufWinEnter",
     config = function()
-      require('yanky').setup {
+      require("yanky").setup({
         preserve_cursor_position = {
           enabled = true,
         },
@@ -17,15 +17,15 @@ return {
         system_clipboard = {
           sync_with_ring = false,
         },
-      }
+      })
     end,
   },
   {
-    'gbprod/cutlass.nvim',
-    event = 'BufWinEnter',
+    "gbprod/cutlass.nvim",
+    event = "BufWinEnter",
     opts = {
-      cut_key = 'm',
-      exclude = { 'ns', 'nS' },
+      cut_key = "m",
+      exclude = { "ns", "nS" },
     },
   },
 }

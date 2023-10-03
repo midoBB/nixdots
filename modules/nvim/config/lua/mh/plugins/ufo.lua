@@ -1,28 +1,28 @@
 return {
   {
-    'kevinhwang91/nvim-ufo',
+    "kevinhwang91/nvim-ufo",
     dependencies = {
-      'kevinhwang91/promise-async',
+      "kevinhwang91/promise-async",
       {
-        'luukvbaal/statuscol.nvim',
+        "luukvbaal/statuscol.nvim",
         config = function()
-          local builtin = require 'statuscol.builtin'
-          require('statuscol').setup {
+          local builtin = require("statuscol.builtin")
+          require("statuscol").setup({
             relculright = true,
             segments = {
-              { text = { builtin.foldfunc }, click = 'v:lua.ScFa' },
-              { text = { '%s' }, click = 'v:lua.ScSa' },
-              { text = { builtin.lnumfunc, ' ' }, click = 'v:lua.ScLa' },
+              { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+              { text = { "%s" }, click = "v:lua.ScSa" },
+              { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
             },
-          }
+          })
         end,
       },
     },
-    event = 'BufWinEnter',
+    event = "BufWinEnter",
     config = function()
       local handler = function(virtText, lnum, endLnum, width, truncate)
         local newVirtText = {}
-        local suffix = ('  %d '):format(endLnum - lnum)
+        local suffix = ("  %d "):format(endLnum - lnum)
         local sufWidth = vim.fn.strdisplaywidth(suffix)
         local targetWidth = width - sufWidth
         local curWidth = 0
@@ -38,71 +38,71 @@ return {
             chunkWidth = vim.fn.strdisplaywidth(chunkText)
             -- str width returned from truncate() may less than 2nd argument, need padding
             if curWidth + chunkWidth < targetWidth then
-              suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
+              suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
             end
             break
           end
           curWidth = curWidth + chunkWidth
         end
-        table.insert(newVirtText, { suffix, 'MoreMsg' })
+        table.insert(newVirtText, { suffix, "MoreMsg" })
         return newVirtText
       end
-      local ufo = require 'ufo'
-      vim.keymap.set('n', 'zR', ufo.openAllFolds, { desc = 'Open all folds in file' })
-      vim.keymap.set('n', 'zM', ufo.closeAllFolds, { desc = 'Open all folds in file' })
-      ufo.setup {
+      local ufo = require("ufo")
+      vim.keymap.set("n", "zR", ufo.openAllFolds, { desc = "Open all folds in file" })
+      vim.keymap.set("n", "zM", ufo.closeAllFolds, { desc = "Open all folds in file" })
+      ufo.setup({
         fold_virt_text_handler = handler,
         provider_selector = function(_, _, _)
-          return { 'treesitter', 'indent' }
+          return { "treesitter", "indent" }
         end,
-      }
+      })
       local bufnr = vim.api.nvim_get_current_buf()
       ufo.setFoldVirtTextHandler(bufnr, handler)
     end,
     keys = {
-      { 'zc' },
-      { 'zo' },
-      { 'zC' },
-      { 'zO' },
-      { 'za' },
-      { 'zA' },
+      { "zc" },
+      { "zo" },
+      { "zC" },
+      { "zO" },
+      { "za" },
+      { "zA" },
       {
-        'zr',
+        "zr",
         function()
-          require('ufo').openFoldsExceptKinds()
+          require("ufo").openFoldsExceptKinds()
         end,
-        desc = 'Open Folds Except Kinds',
+        desc = "Open Folds Except Kinds",
       },
       {
-        'zR',
+        "zR",
         function()
-          require('ufo').openAllFolds()
+          require("ufo").openAllFolds()
         end,
-        desc = 'Open All Folds',
+        desc = "Open All Folds",
       },
       {
-        'zM',
+        "zM",
         function()
-          require('ufo').closeAllFolds()
+          require("ufo").closeAllFolds()
         end,
-        desc = 'Close All Folds',
+        desc = "Close All Folds",
       },
       {
-        'zm',
+        "zm",
         function()
-          require('ufo').closeFoldsWith()
+          require("ufo").closeFoldsWith()
         end,
-        desc = 'Close Folds With',
+        desc = "Close Folds With",
       },
       {
-        'zp',
+        "zp",
         function()
-          local winid = require('ufo').peekFoldedLinesUnderCursor()
+          local winid = require("ufo").peekFoldedLinesUnderCursor()
           if not winid then
             vim.lsp.buf.hover()
           end
         end,
-        desc = 'Peek Fold',
+        desc = "Peek Fold",
       },
     },
   },

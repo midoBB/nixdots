@@ -1,25 +1,25 @@
 return {
   {
-    'neovim/nvim-lspconfig',
-    event = { 'BufReadPre', 'BufNewFile' },
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      { 'folke/neoconf.nvim', cmd = 'Neoconf', config = true },
-      { 'smjonas/inc-rename.nvim', config = true, event = 'LspAttach' },
-      { 'SmiteshP/nvim-navic', event = 'LspAttach' },
-      { 'kosayoda/nvim-lightbulb', event = 'LspAttach', opts = {
+      { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
+      { "smjonas/inc-rename.nvim", config = true, event = "LspAttach" },
+      { "SmiteshP/nvim-navic", event = "LspAttach" },
+      { "kosayoda/nvim-lightbulb", event = "LspAttach", opts = {
         autocmd = { enabled = true },
       } },
 
-      { 'b0o/SchemaStore.nvim', ft = { 'json', 'yaml' } },
-      { 'weilbith/nvim-code-action-menu', event = 'LspAttach' },
+      { "b0o/SchemaStore.nvim", ft = { "json", "yaml" } },
+      { "weilbith/nvim-code-action-menu", event = "LspAttach" },
     },
     config = function()
-      require('mh.plugins.lsp.servers').setup()
+      require("mh.plugins.lsp.servers").setup()
     end,
   },
   {
-    'nvimdev/lspsaga.nvim',
-    event = 'LspAttach',
+    "nvimdev/lspsaga.nvim",
+    event = "LspAttach",
     opts = {
       symbol_in_winbar = {
         enable = false,
@@ -29,44 +29,44 @@ return {
       },
     },
     dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'nvim-tree/nvim-web-devicons',
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
     },
   },
   {
-    'nvimtools/none-ls.nvim',
-    event = { 'BufReadPre', 'BufNewFile' },
+    "nvimtools/none-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     ft = {
-      'lua',
-      'python',
-      'nix',
-      'prisma',
-      'sql',
-      'proto',
-      'javascript',
-      'javascriptreact',
-      'typescript',
-      'typescriptreact',
-      'vue',
-      'html',
-      'css',
-      'json',
-      'jsonc',
-      'yaml',
-      'graphql',
-      'handlebars',
-      'svelte',
-      'markdown',
-      'dockerfile',
-      'xml',
-      'go',
-      'bash',
-      'zsh',
-      'sh',
+      "lua",
+      "python",
+      "nix",
+      "prisma",
+      "sql",
+      "proto",
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "vue",
+      "html",
+      "css",
+      "json",
+      "jsonc",
+      "yaml",
+      "graphql",
+      "handlebars",
+      "svelte",
+      "markdown",
+      "dockerfile",
+      "xml",
+      "go",
+      "bash",
+      "zsh",
+      "sh",
     },
     config = function()
-      local nls = require 'null-ls'
-      nls.setup {
+      local nls = require("null-ls")
+      nls.setup({
         sources = {
           -- Lua
           nls.builtins.formatting.stylua,
@@ -79,43 +79,43 @@ return {
           nls.builtins.diagnostics.statix, -- for nix
           nls.builtins.formatting.prismaFmt, -- for node prisma db orm
           -- sql
-          nls.builtins.diagnostics.sqlfluff.with {
-            extra_args = { '--dialect', 'sqlite' },
-          },
-          nls.builtins.formatting.sqlfluff.with {
-            extra_args = { '--dialect', 'sqlite' },
-          },
+          nls.builtins.diagnostics.sqlfluff.with({
+            extra_args = { "--dialect", "sqlite" },
+          }),
+          nls.builtins.formatting.sqlfluff.with({
+            extra_args = { "--dialect", "sqlite" },
+          }),
           nls.builtins.formatting.protolint, --proto files
           -- webdev
-          nls.builtins.formatting.prettier_d_slim.with {
+          nls.builtins.formatting.prettier_d_slim.with({
             filetypes = {
-              'javascript',
-              'javascriptreact',
-              'typescript',
-              'typescriptreact',
-              'vue',
-              'scss',
-              'less',
-              'html',
-              'css',
-              'json',
-              'jsonc',
-              'yaml',
-              'graphql',
-              'handlebars',
-              'svelte',
-              'markdown',
+              "javascript",
+              "javascriptreact",
+              "typescript",
+              "typescriptreact",
+              "vue",
+              "scss",
+              "less",
+              "html",
+              "css",
+              "json",
+              "jsonc",
+              "yaml",
+              "graphql",
+              "handlebars",
+              "svelte",
+              "markdown",
             },
-          },
-          nls.builtins.diagnostics.eslint_d.with {
+          }),
+          nls.builtins.diagnostics.eslint_d.with({
             args = {
-              '-f',
-              'json',
-              '--stdin',
-              '--stdin-filename',
-              '$FILENAME',
+              "-f",
+              "json",
+              "--stdin",
+              "--stdin-filename",
+              "$FILENAME",
             },
-          },
+          }),
           nls.builtins.code_actions.eslint_d,
           --markdown
           nls.builtins.diagnostics.proselint,
@@ -138,27 +138,32 @@ return {
           nls.builtins.diagnostics.tidy,
           nls.builtins.formatting.xmllint,
         },
-      }
+      })
     end,
   },
   {
-    'j-hui/fidget.nvim',
-    tag = 'legacy',
-    event = 'LspAttach',
+    "j-hui/fidget.nvim",
+    tag = "legacy",
+    event = "LspAttach",
     opts = {
       fmt = {
         task = function(task_name, message, percentage)
-          if task_name == 'code_action' then
+          if task_name == "code_action" then
             return false
           end
-          return string.format('%s%s [%s]', message, percentage and string.format(' (%s%%)', percentage) or '', task_name)
+          return string.format(
+            "%s%s [%s]",
+            message,
+            percentage and string.format(" (%s%%)", percentage) or "",
+            task_name
+          )
         end,
       },
     },
   },
   {
-    'VidocqH/lsp-lens.nvim',
-    event = 'LspAttach',
+    "VidocqH/lsp-lens.nvim",
+    event = "LspAttach",
     config = true,
   },
 }

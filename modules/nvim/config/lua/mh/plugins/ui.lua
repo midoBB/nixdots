@@ -1,13 +1,13 @@
 return {
-  { 'mrjones2014/smart-splits.nvim', version = '>=1.0.0', opts = {}, event = 'UIEnter' },
+  { "mrjones2014/smart-splits.nvim", version = ">=1.0.0", opts = {}, event = "UIEnter" },
   {
-    'tummetott/reticle.nvim',
-    event = 'VeryLazy',
+    "tummetott/reticle.nvim",
+    event = "VeryLazy",
     opts = {},
   },
   {
-    'folke/noice.nvim',
-    event = 'VeryLazy',
+    "folke/noice.nvim",
+    event = "VeryLazy",
     enabled = true,
     opts = {
       lsp = {
@@ -15,22 +15,22 @@ return {
           enabled = false,
         },
         override = {
-          ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
-          ['vim.lsp.util.stylize_markdown'] = true,
-          ['cmp.entry.get_documentation'] = true,
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true,
         },
       },
       routes = {
         {
           filter = {
-            event = 'msg_show',
+            event = "msg_show",
             any = {
-              { find = '%d+L, %d+B' },
-              { find = '; after #%d+' },
-              { find = '; before #%d+' },
+              { find = "%d+L, %d+B" },
+              { find = "; after #%d+" },
+              { find = "; before #%d+" },
             },
           },
-          view = 'mini',
+          view = "mini",
         },
       },
       presets = {
@@ -43,37 +43,37 @@ return {
     },
   },
   {
-    'folke/zen-mode.nvim',
+    "folke/zen-mode.nvim",
     dependencies = {
-      'lukas-reineke/indent-blankline.nvim',
+      "lukas-reineke/indent-blankline.nvim",
       {
-        'folke/twilight.nvim',
+        "folke/twilight.nvim",
         opts = {},
       },
     },
     keys = { {
-      '<leader>wc',
-      '<cmd>ZenMode<cr>',
-      desc = 'Enable distraction-free mode',
+      "<leader>wc",
+      "<cmd>ZenMode<cr>",
+      desc = "Enable distraction-free mode",
     } },
     config = function()
-      require('zen-mode').setup {
+      require("zen-mode").setup({
         on_open = function()
-          vim.cmd 'IBLDisable'
+          vim.cmd("IBLDisable")
         end,
         on_close = function()
-          vim.cmd 'IBLEnable'
+          vim.cmd("IBLEnable")
         end,
-      }
+      })
     end,
   },
   {
-    'nvim-zh/colorful-winsep.nvim',
+    "nvim-zh/colorful-winsep.nvim",
     config = true,
-    event = { 'WinNew' },
+    event = { "WinNew" },
   },
   {
-    'stevearc/stickybuf.nvim',
+    "stevearc/stickybuf.nvim",
     opts = {},
   },
 }

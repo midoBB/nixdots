@@ -1,10 +1,10 @@
 return {
   {
-    'catppuccin/nvim',
-    name = 'catppuccin',
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
     config = function()
-      require('catppuccin').setup {
+      require("catppuccin").setup({
         integrations = {
           cmp = true,
           gitsigns = true,
@@ -20,16 +20,16 @@ return {
           native_lsp = {
             enabled = true,
             underlines = {
-              errors = { 'undercurl' },
-              hints = { 'undercurl' },
-              warnings = { 'undercurl' },
-              information = { 'undercurl' },
+              errors = { "undercurl" },
+              hints = { "undercurl" },
+              warnings = { "undercurl" },
+              information = { "undercurl" },
             },
             inlay_hints = {
               background = true,
             },
           },
-          navic = { enabled = true, custom_bg = 'lualine' },
+          navic = { enabled = true, custom_bg = "lualine" },
           treesitter_context = true,
           overseer = true,
           neotest = true,
@@ -40,33 +40,33 @@ return {
           treesitter = true,
           which_key = true,
         },
-      }
-      vim.cmd.colorscheme 'catppuccin-macchiato'
+      })
+      vim.cmd.colorscheme("catppuccin-macchiato")
     end,
     enabled = false,
   },
-  { 'xiyaowong/transparent.nvim', lazy = false },
+  { "xiyaowong/transparent.nvim", lazy = false },
   {
-    'norcalli/nvim-colorizer.lua',
+    "norcalli/nvim-colorizer.lua",
     config = function()
-      require('colorizer').setup()
+      require("colorizer").setup()
     end,
   },
   {
-    'ellisonleao/gruvbox.nvim',
+    "ellisonleao/gruvbox.nvim",
     priority = 1000,
     enabled = false,
     config = function()
-      vim.cmd 'colorscheme gruvbox'
+      vim.cmd("colorscheme gruvbox")
     end,
   },
   {
-    'folke/tokyonight.nvim',
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     opts = {},
     config = function()
-      vim.cmd [[colorscheme tokyonight]]
+      vim.cmd([[colorscheme tokyonight]])
     end,
   },
 }

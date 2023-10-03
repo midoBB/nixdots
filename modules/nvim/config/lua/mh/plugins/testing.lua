@@ -1,47 +1,53 @@
 return {
   {
-    'nvim-neotest/neotest',
+    "nvim-neotest/neotest",
     keys = {
-      { '<leader>tF', "<cmd>w|lua require('neotest').run.run({vim.fn.expand('%'), strategy = 'dap'})<cr>", desc = 'Debug File' },
-      { '<leader>tL', "<cmd>w|lua require('neotest').run.run_last({strategy = 'dap'})<cr>", desc = 'Debug Last' },
-      { '<leader>ta', "<cmd>w|lua require('neotest').run.attach()<cr>", desc = 'Attach' },
-      { '<leader>tf', "<cmd>w|lua require('neotest').run.run(vim.fn.expand('%'))<cr>", desc = 'File' },
-      { '<leader>tl', "<cmd>w|lua require('neotest').run.run_last()<cr>", desc = 'Last' },
-      { '<leader>tn', "<cmd>w|lua require('neotest').run.run()<cr>", desc = 'Nearest' },
-      { '<leader>tN', "<cmd>w|lua require('neotest').run.run({strategy = 'dap'})<cr>", desc = 'Debug Nearest' },
-      { '<leader>to', "<cmd>w|lua require('neotest').output.open({ enter = true })<cr>", desc = 'Output' },
-      { '<leader>ts', "<cmd>w|lua require('neotest').run.stop()<cr>", desc = 'Stop' },
-      { '<leader>tS', "<cmd>w|lua require('neotest').summary.toggle()<cr>", desc = 'Summary' },
+      {
+        "<leader>tF",
+        "<cmd>w|lua require('neotest').run.run({vim.fn.expand('%'), strategy = 'dap'})<cr>",
+        desc = "Debug File",
+      },
+      { "<leader>tL", "<cmd>w|lua require('neotest').run.run_last({strategy = 'dap'})<cr>", desc = "Debug Last" },
+      { "<leader>ta", "<cmd>w|lua require('neotest').run.attach()<cr>", desc = "Attach" },
+      { "<leader>tf", "<cmd>w|lua require('neotest').run.run(vim.fn.expand('%'))<cr>", desc = "File" },
+      { "<leader>tl", "<cmd>w|lua require('neotest').run.run_last()<cr>", desc = "Last" },
+      { "<leader>tn", "<cmd>w|lua require('neotest').run.run()<cr>", desc = "Nearest" },
+      { "<leader>tN", "<cmd>w|lua require('neotest').run.run({strategy = 'dap'})<cr>", desc = "Debug Nearest" },
+      { "<leader>to", "<cmd>w|lua require('neotest').output.open({ enter = true })<cr>", desc = "Output" },
+      { "<leader>ts", "<cmd>w|lua require('neotest').run.stop()<cr>", desc = "Stop" },
+      { "<leader>tS", "<cmd>w|lua require('neotest').summary.toggle()<cr>", desc = "Summary" },
     },
     dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-treesitter/nvim-treesitter',
-      'antoinemadec/FixCursorHold.nvim',
-      'nvim-neotest/neotest-vim-test',
-      'vim-test/vim-test',
-      'stevearc/overseer.nvim',
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-neotest/neotest-vim-test",
+      "vim-test/vim-test",
+      "stevearc/overseer.nvim",
+      "nvim-neotest/neotest-go",
     },
     opts = function()
       return {
         adapters = {
-          require 'neotest-vim-test' {
-            ignore_file_types = { 'python', 'vim', 'lua' },
-          },
+          require("neotest-vim-test")({
+            ignore_file_types = { "python", "vim", "lua" },
+          }),
+          require("neotest-go"),
         },
         status = { virtual_text = true },
         output = { open_on_run = true },
         quickfix = {
           open = function()
-            if require('utils').has 'trouble.nvim' then
-              vim.cmd 'Trouble quickfix'
+            if require("utils").has("trouble.nvim") then
+              vim.cmd("Trouble quickfix")
             else
-              vim.cmd 'copen'
+              vim.cmd("copen")
             end
           end,
         },
         -- overseer.nvim
         consumers = {
-          overseer = require 'neotest.consumers.overseer',
+          overseer = require("neotest.consumers.overseer"),
         },
         overseer = {
           enabled = true,
@@ -50,24 +56,24 @@ return {
       }
     end,
     config = function(_, opts)
-      local neotest_ns = vim.api.nvim_create_namespace 'neotest'
+      local neotest_ns = vim.api.nvim_create_namespace("neotest")
       vim.diagnostic.config({
         virtual_text = {
           format = function(diagnostic)
-            local message = diagnostic.message:gsub('\n', ' '):gsub('\t', ' '):gsub('%s+', ' '):gsub('^%s+', '')
+            local message = diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
             return message
           end,
         },
       }, neotest_ns)
-      require('neotest').setup(opts)
+      require("neotest").setup(opts)
     end,
   },
   {
-    'anuvyklack/hydra.nvim',
+    "anuvyklack/hydra.nvim",
     opts = {
       specs = {
         test = function()
-          local cmd = require('hydra.keymap-util').cmd
+          local cmd = require("hydra.keymap-util").cmd
           local hint = [[
 ^
 _f_: File
@@ -88,31 +94,35 @@ _s_: Stop
 ^ ^  _q_: Quit
           ]]
           return {
-            name = 'Test',
+            name = "Test",
             hint = hint,
             config = {
-              color = 'pink',
+              color = "pink",
               invoke_on_body = true,
               hint = {
-                border = 'rounded',
-                position = 'top-left',
+                border = "rounded",
+                position = "top-left",
               },
             },
-            mode = 'n',
-            body = '<F5>',
+            mode = "n",
+            body = "<F5>",
             heads = {
-              { 'F', cmd "w|lua require('neotest').run.run(vim.loop.cwd())", desc = 'All Files' },
-              { 'L', cmd "w|lua require('neotest').run.run_last({strategy = 'dap'})", desc = 'Debug Last' },
-              { 'N', cmd "w|lua require('neotest').run.run({strategy = 'dap'})", desc = 'Debug Nearest' },
-              { 'S', cmd "w|lua require('neotest').summary.toggle()", desc = 'Summary' },
-              { 'a', cmd "w|lua require('neotest').run.attach()", desc = 'Attach' },
-              { 'd', cmd "w|lua require('neotest').run.run({vim.fn.expand('%'), strategy = 'dap'}", desc = 'Debug File' },
-              { 'f', cmd "w|lua require('neotest').run.run(vim.fn.expand('%'))", desc = 'File' },
-              { 'l', cmd "w|lua require('neotest').run.run_last()", desc = 'Last' },
-              { 'n', cmd "w|lua require('neotest').run.run()", desc = 'Nearest' },
-              { 'o', cmd "w|lua require('neotest').output.open({ enter = true })", desc = 'Output' },
-              { 's', cmd "w|lua require('neotest').run.stop()", desc = 'Stop' },
-              { 'q', nil, { exit = true, nowait = true, desc = 'Exit' } },
+              { "F", cmd("w|lua require('neotest').run.run(vim.loop.cwd())"), desc = "All Files" },
+              { "L", cmd("w|lua require('neotest').run.run_last({strategy = 'dap'})"), desc = "Debug Last" },
+              { "N", cmd("w|lua require('neotest').run.run({strategy = 'dap'})"), desc = "Debug Nearest" },
+              { "S", cmd("w|lua require('neotest').summary.toggle()"), desc = "Summary" },
+              { "a", cmd("w|lua require('neotest').run.attach()"), desc = "Attach" },
+              {
+                "d",
+                cmd("w|lua require('neotest').run.run({vim.fn.expand('%'), strategy = 'dap'}"),
+                desc = "Debug File",
+              },
+              { "f", cmd("w|lua require('neotest').run.run(vim.fn.expand('%'))"), desc = "File" },
+              { "l", cmd("w|lua require('neotest').run.run_last()"), desc = "Last" },
+              { "n", cmd("w|lua require('neotest').run.run()"), desc = "Nearest" },
+              { "o", cmd("w|lua require('neotest').output.open({ enter = true })"), desc = "Output" },
+              { "s", cmd("w|lua require('neotest').run.stop()"), desc = "Stop" },
+              { "q", nil, { exit = true, nowait = true, desc = "Exit" } },
             },
           }
         end,

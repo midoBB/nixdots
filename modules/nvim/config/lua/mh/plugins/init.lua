@@ -1,31 +1,31 @@
 return {
-  'tyru/open-browser.vim',
-  'tpope/vim-sleuth',
-  'nvim-lua/plenary.nvim',
-  'tpope/vim-repeat',
-  'MunifTanjim/nui.nvim',
+  "tyru/open-browser.vim",
+  "tpope/vim-sleuth",
+  "nvim-lua/plenary.nvim",
+  "tpope/vim-repeat",
+  "MunifTanjim/nui.nvim",
   {
-    'nvim-tree/nvim-web-devicons',
-    dependencies = { 'DaikyXendo/nvim-material-icon' },
+    "nvim-tree/nvim-web-devicons",
+    dependencies = { "DaikyXendo/nvim-material-icon" },
     config = function()
-      require('nvim-web-devicons').setup {
-        override = require('nvim-material-icon').get_icons(),
-      }
+      require("nvim-web-devicons").setup({
+        override = require("nvim-material-icon").get_icons(),
+      })
     end,
   },
   {
-    'stevearc/dressing.nvim',
-    event = 'VeryLazy',
+    "stevearc/dressing.nvim",
+    event = "VeryLazy",
     opts = {
-      input = { relative = 'editor' },
+      input = { relative = "editor" },
       select = {
-        backend = { 'telescope', 'fzf', 'builtin' },
+        backend = { "telescope", "fzf", "builtin" },
       },
     },
   },
   {
-    'rcarriga/nvim-notify',
-    event = 'VeryLazy',
+    "rcarriga/nvim-notify",
+    event = "VeryLazy",
     opts = {
       -- background_colour = "#A3CCBE",
       timeout = 3000,
@@ -37,13 +37,18 @@ return {
       end,
     },
     config = function(_, opts)
-      require('notify').setup(opts)
-      vim.notify = require 'notify'
+      require("notify").setup(opts)
+      vim.notify = require("notify")
     end,
   },
   {
-    'monaqa/dial.nvim',
-    keys = { { '<C-a>', mode = { 'n', 'v' } }, { '<C-x>', mode = { 'n', 'v' } }, { 'g<C-a>', mode = { 'v' } }, { 'g<C-x>', mode = { 'v' } } },
+    "monaqa/dial.nvim",
+    keys = {
+      { "<C-a>", mode = { "n", "v" } },
+      { "<C-x>", mode = { "n", "v" } },
+      { "g<C-a>", mode = { "v" } },
+      { "g<C-x>", mode = { "v" } },
+    },
     -- stylua: ignore
     init = function()
       vim.api.nvim_set_keymap("n", "<C-a>", require("dial.map").inc_normal(), { desc = "Increment", noremap = true })
@@ -55,10 +60,10 @@ return {
     end,
   },
   {
-    'andymass/vim-matchup',
-    event = { 'BufReadPost' },
+    "andymass/vim-matchup",
+    event = { "BufReadPost" },
     config = function()
-      vim.g.matchup_matchparen_offscreen = { method = 'popup' }
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end,
   },
 }

@@ -1,20 +1,20 @@
 local M = {}
 
-local lsp_utils = require 'mh.plugins.lsp.utils'
+local lsp_utils = require("mh.plugins.lsp.utils")
 
-local navic = require 'nvim-navic'
+local navic = require("nvim-navic")
 function M.setup()
   lsp_utils.on_attach(function(client, bufnr)
-    require('mh.plugins.lsp.format').on_attach(client, bufnr)
-    require('mh.plugins.lsp.keymaps').on_attach(client, bufnr)
+    require("mh.plugins.lsp.format").on_attach(client, bufnr)
+    require("mh.plugins.lsp.keymaps").on_attach(client, bufnr)
     if client.server_capabilities.documentSymbolProvider then
       navic.attach(client, bufnr)
     end
   end)
 
   local capabilities = lsp_utils.capabilities()
-  local lspconfig = require 'lspconfig'
-  lspconfig.gopls.setup {
+  local lspconfig = require("lspconfig")
+  lspconfig.gopls.setup({
     settings = {
       gopls = {
         hints = {
@@ -28,30 +28,30 @@ function M.setup()
       },
     },
     capabilities = capabilities,
-  }
-  lspconfig.ltex.setup { capabilities = capabilities }
-  lspconfig.nil_ls.setup { capabilities = capabilities }
-  lspconfig.svelte.setup { capabilities = capabilities }
+  })
+  lspconfig.ltex.setup({ capabilities = capabilities })
+  lspconfig.nil_ls.setup({ capabilities = capabilities })
+  lspconfig.svelte.setup({ capabilities = capabilities })
 
-  lspconfig.tailwindcss.setup {
+  lspconfig.tailwindcss.setup({
     capabilities = capabilities,
     settings = {
-      files = { exclude = { '**/.git/**', '**/node_modules/**', '**/*.md' } },
+      files = { exclude = { "**/.git/**", "**/node_modules/**", "**/*.md" } },
     },
-  }
+  })
 
-  lspconfig.prismals.setup { capabilities = capabilities }
-  lspconfig.dockerls.setup { capabilities = capabilities }
-  lspconfig.docker_compose_language_service.setup { capabilities = capabilities }
-  lspconfig.cssls.setup {
+  lspconfig.prismals.setup({ capabilities = capabilities })
+  lspconfig.dockerls.setup({ capabilities = capabilities })
+  lspconfig.docker_compose_language_service.setup({ capabilities = capabilities })
+  lspconfig.cssls.setup({
     capabilities = capabilities,
-    settings = { css = { lint = { unknownAtRules = 'ignore' } } },
-  }
-  lspconfig.eslint.setup { capabilities = capabilities }
-  lspconfig.html.setup { capabilities = capabilities }
-  lspconfig.bashls.setup { capabilities = capabilities }
-  lspconfig.ruff_lsp.setup { capabilities = capabilities }
-  lspconfig.pylsp.setup {
+    settings = { css = { lint = { unknownAtRules = "ignore" } } },
+  })
+  lspconfig.eslint.setup({ capabilities = capabilities })
+  lspconfig.html.setup({ capabilities = capabilities })
+  lspconfig.bashls.setup({ capabilities = capabilities })
+  lspconfig.ruff_lsp.setup({ capabilities = capabilities })
+  lspconfig.pylsp.setup({
     settings = {
       pylsp = {
         plugins = {
@@ -60,7 +60,7 @@ function M.setup()
           autopep8 = { enabled = false },
           yapf = { enabled = false },
           -- linter options
-          pylint = { enabled = true, executable = 'pylint' },
+          pylint = { enabled = true, executable = "pylint" },
           pyflakes = { enabled = false },
           pycodestyle = { enabled = false },
           -- type checker
@@ -76,39 +76,39 @@ function M.setup()
       debounce_text_changes = 200,
     },
     capabilities = capabilities,
-  }
-  lspconfig.jsonls.setup {
+  })
+  lspconfig.jsonls.setup({
     settings = {
       json = {
-        schemas = require('schemastore').json.schemas(),
+        schemas = require("schemastore").json.schemas(),
         validate = { enable = true },
       },
     },
     capabilities = capabilities,
-  }
-  lspconfig.lua_ls.setup {
+  })
+  lspconfig.lua_ls.setup({
     capabilities = capabilities,
-    filetypes = { 'lua' },
+    filetypes = { "lua" },
     settings = {
       Lua = {
         runtime = {
-          version = 'LuaJIT',
+          version = "LuaJIT",
         },
         diagnostics = {
-          globals = { 'vim', 'string', 'require' },
+          globals = { "vim", "string", "require" },
         },
         hint = {
           enable = true,
         },
         workspace = {
-          library = vim.api.nvim_get_runtime_file('', true),
+          library = vim.api.nvim_get_runtime_file("", true),
           checkThirdParty = false,
         },
         telemetry = { enable = false },
-        completion = { enable = true, callSnippet = 'Replace' },
+        completion = { enable = true, callSnippet = "Replace" },
       },
     },
-  }
+  })
 end
 
 return M

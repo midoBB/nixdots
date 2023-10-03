@@ -1,61 +1,61 @@
 return {
   {
-    'mg979/vim-visual-multi',
-    event = { 'BufReadPre', 'BufNewFile' },
+    "mg979/vim-visual-multi",
+    event = { "BufReadPre", "BufNewFile" },
   },
-  'romainl/vim-cool',
+  "romainl/vim-cool",
   {
-    'kevinhwang91/nvim-hlslens',
+    "kevinhwang91/nvim-hlslens",
     keys = {
-      { 'n', [[<Cmd>execute('normal! ' . v:count1 . 'nzzzv')<CR><Cmd>lua require('hlslens').start()<CR>]] },
-      { 'N', [[<Cmd>execute('normal! ' . v:count1 . 'Nzzzv')<CR><Cmd>lua require('hlslens').start()<CR>]] },
-      { '*', [[*<Cmd>lua require('hlslens').start()<CR>]] },
-      { '#', [[#<Cmd>lua require('hlslens').start()<CR>]] },
-      { 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]] },
-      { 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]] },
+      { "n", [[<Cmd>execute('normal! ' . v:count1 . 'nzzzv')<CR><Cmd>lua require('hlslens').start()<CR>]] },
+      { "N", [[<Cmd>execute('normal! ' . v:count1 . 'Nzzzv')<CR><Cmd>lua require('hlslens').start()<CR>]] },
+      { "*", [[*<Cmd>lua require('hlslens').start()<CR>]] },
+      { "#", [[#<Cmd>lua require('hlslens').start()<CR>]] },
+      { "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]] },
+      { "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]] },
     },
     config = function()
-      require('hlslens').setup()
-      vim.cmd [[
+      require("hlslens").setup()
+      vim.cmd([[
                 aug VMlens
                     au!
                     au User visual_multi_start lua require('mh.utils.vmlens').start()
                     au User visual_multi_exit lua require('mh.utils.vmlens').exit()
                 aug END
-              ]]
+              ]])
     end,
   },
   {
-    'roobert/search-replace.nvim',
+    "roobert/search-replace.nvim",
     keys = {
-      { '<C-r>', '<CMD>SearchReplaceSingleBufferVisualSelection<CR>', desc = 'Search and Replace', mode = 'v' },
+      { "<C-r>", "<CMD>SearchReplaceSingleBufferVisualSelection<CR>", desc = "Search and Replace", mode = "v" },
     },
     config = function()
-      require('search-replace').setup {
+      require("search-replace").setup({
         -- optionally override defaults
-        default_replace_single_buffer_options = 'gcI',
-        default_replace_multi_buffer_options = 'egcI',
-      }
+        default_replace_single_buffer_options = "gcI",
+        default_replace_multi_buffer_options = "egcI",
+      })
     end,
   },
   {
-    'kevinhwang91/nvim-bqf',
+    "kevinhwang91/nvim-bqf",
     opts = {
       filter = {
-        fzf = { extra_opts = { '--bind', 'ctrl-o:toggle-all', '--delimiter', '│' } },
+        fzf = { extra_opts = { "--bind", "ctrl-o:toggle-all", "--delimiter", "│" } },
       },
     },
     config = function()
       function OpenQF()
-        local qf_name = 'quickfix'
+        local qf_name = "quickfix"
         local qf_empty = function()
           return vim.tbl_isempty(vim.fn.getqflist())
         end
         if not qf_empty() then
           vim.cmd.copen()
-          vim.cmd.wincmd 'J'
+          vim.cmd.wincmd("J")
         else
-          print(string.format('%s is empty.', qf_name))
+          print(string.format("%s is empty.", qf_name))
         end
       end
 
@@ -64,16 +64,16 @@ return {
         local win_tbl = {}
         for _, win in pairs(wininfo) do
           local found = false
-          if type == 'l' and win['loclist'] == 1 then
+          if type == "l" and win["loclist"] == 1 then
             found = true
           end
-          if type == 'q' and win['quickfix'] == 1 and win['loclist'] == 0 then
+          if type == "q" and win["quickfix"] == 1 and win["loclist"] == 0 then
             found = true
           end
           if found then
             table.insert(win_tbl, {
-              winid = win['winid'],
-              bufnr = win['bufnr'],
+              winid = win["winid"],
+              bufnr = win["bufnr"],
             })
           end
         end
@@ -82,17 +82,17 @@ return {
 
       function OpenLoclistAll()
         local wininfo = vim.fn.getwininfo()
-        local qf_name = 'loclist'
+        local qf_name = "loclist"
         local qf_empty = function(winnr)
           return vim.tbl_isempty(vim.fn.getloclist(winnr))
         end
         for _, win in pairs(wininfo) do
-          if win['quickfix'] == 0 then
-            if not qf_empty(win['winnr']) then
-              vim.api.nvim_set_current_win(win['winid'])
+          if win["quickfix"] == 0 then
+            if not qf_empty(win["winnr"]) then
+              vim.api.nvim_set_current_win(win["winid"])
               vim.cmd.lopen()
             else
-              print(string.format('%s is empty.', qf_name))
+              print(string.format("%s is empty.", qf_name))
             end
           end
         end
@@ -105,14 +105,14 @@ return {
             vim.api.nvim_win_hide(win.winid)
           end
         else
-          if type == 'l' then
+          if type == "l" then
             OpenLoclistAll()
           else
             OpenQF()
           end
         end
       end
-      Map('n', '<C-c>', "<cmd>lua ToggleQF('q')<CR>", { desc = 'Toggle quickfix window' })
+      Map("n", "<C-c>", "<cmd>lua ToggleQF('q')<CR>", { desc = "Toggle quickfix window" })
     end,
   },
 }

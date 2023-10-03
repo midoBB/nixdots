@@ -1,17 +1,17 @@
 return {
   {
-    dir = '~/Workspace/nvim-quicktype',
+    dir = "~/Workspace/nvim-quicktype",
     ft = {
-      'java',
-      'go',
-      'typescriptreact',
-      'typescript',
-      'swift',
-      'elm',
-      'ruby',
-      'python',
-      'dart',
-      'haskell',
+      "java",
+      "go",
+      "typescriptreact",
+      "typescript",
+      "swift",
+      "elm",
+      "ruby",
+      "python",
+      "dart",
+      "haskell",
     },
     --stylua: ignore
     keys = {
@@ -20,39 +20,39 @@ return {
     },
   },
   {
-    'danymat/neogen',
+    "danymat/neogen",
     opts = {
-      snippet_engine = 'luasnip',
+      snippet_engine = "luasnip",
       enabled = true,
       languages = {
         lua = {
           template = {
-            annotation_convention = 'ldoc',
+            annotation_convention = "ldoc",
           },
         },
         python = {
           template = {
-            annotation_convention = 'google_docstrings',
+            annotation_convention = "google_docstrings",
           },
         },
         rust = {
           template = {
-            annotation_convention = 'rustdoc',
+            annotation_convention = "rustdoc",
           },
         },
         javascript = {
           template = {
-            annotation_convention = 'jsdoc',
+            annotation_convention = "jsdoc",
           },
         },
         typescript = {
           template = {
-            annotation_convention = 'tsdoc',
+            annotation_convention = "tsdoc",
           },
         },
         typescriptreact = {
           template = {
-            annotation_convention = 'tsdoc',
+            annotation_convention = "tsdoc",
           },
         },
       },

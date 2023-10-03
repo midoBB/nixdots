@@ -1,20 +1,20 @@
 return {
   {
-    'akinsho/bufferline.nvim',
+    "akinsho/bufferline.nvim",
     enabled = false,
-    version = '*',
+    version = "*",
     dependencies = {
-      'nvim-tree/nvim-web-devicons',
+      "nvim-tree/nvim-web-devicons",
     },
     opts = {
       options = {
         offsets = {
-          { filetype = 'NvimTree', text = '', text_align = 'left', padding = 1 },
-          { filetype = 'OverseerList', text = '', text_align = 'left', padding = 1 },
+          { filetype = "NvimTree", text = "", text_align = "left", padding = 1 },
+          { filetype = "OverseerList", text = "", text_align = "left", padding = 1 },
         },
-        numbers = 'none',
-        diagnostics = 'nvim_lsp',
-        separator_style = 'padded_slant',
+        numbers = "none",
+        diagnostics = "nvim_lsp",
+        separator_style = "padded_slant",
         show_tab_indicators = true,
         show_buffer_close_icons = false,
         show_close_icon = false,
@@ -43,22 +43,22 @@ return {
     },
   },
   {
-    'roobert/bufferline-cycle-windowless.nvim',
+    "roobert/bufferline-cycle-windowless.nvim",
     enabled = false,
-    dependencies = { 'akinsho/bufferline.nvim' },
+    dependencies = { "akinsho/bufferline.nvim" },
     keys = {
-      { '<S-h>', '<cmd>BufferLineCycleWindowlessPrev<CR>' },
-      { '<leader>bp', '<cmd>BufferLineCycleWindowlessPrev<CR>', desc = 'Previous buffer' },
-      { '<S-l>', '<cmd>BufferLineCycleWindowlessNext<CR>' },
-      { '<leader>bn', '<cmd>BufferLineCycleWindowlessNext<CR>', desc = 'Next buffer' },
+      { "<S-h>", "<cmd>BufferLineCycleWindowlessPrev<CR>" },
+      { "<leader>bp", "<cmd>BufferLineCycleWindowlessPrev<CR>", desc = "Previous buffer" },
+      { "<S-l>", "<cmd>BufferLineCycleWindowlessNext<CR>" },
+      { "<leader>bn", "<cmd>BufferLineCycleWindowlessNext<CR>", desc = "Next buffer" },
     },
     config = function()
-      require('bufferline-cycle-windowless').setup {
+      require("bufferline-cycle-windowless").setup({
         default_enabled = true,
-      }
+      })
     end,
   },
   {
-    'ojroques/nvim-bufdel',
+    "ojroques/nvim-bufdel",
   },
 }

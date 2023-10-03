@@ -48,7 +48,7 @@
     fzy
   ];
   xdg.configFile."nvim" = {
-   source = ./config;
-   recursive = true;
+    source = ./config;
+    recursive = true;
   };
 }

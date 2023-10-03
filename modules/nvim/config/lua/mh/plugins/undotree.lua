@@ -1,11 +1,11 @@
 return {
   {
-    'mbbill/undotree',
+    "mbbill/undotree",
     keys = {
       {
-        '<leader>bu',
-        '<cmd>UndotreeToggle<cr>',
-        desc = 'Undo tree',
+        "<leader>bu",
+        "<cmd>UndotreeToggle<cr>",
+        desc = "Undo tree",
       },
     },
     config = function()
