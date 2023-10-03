@@ -4,6 +4,8 @@ format:
     stylua **/*.lua
 user:
     apply-user
+nvim:
+    nvim --headless "+Lazy! sync" +qa
 system:
     apply-system
 update:
