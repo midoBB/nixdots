@@ -12,6 +12,7 @@ return {
       "hrsh7th/nvim-cmp",
     },
     config = true,
+    enabled = false,
   },
   {
     "phaazon/hop.nvim",

@@ -18,6 +18,11 @@ return {
     end,
   },
   {
+    "dnlhc/glance.nvim",
+    event = "LspAttach",
+    config = true,
+  },
+  {
     "nvimdev/lspsaga.nvim",
     event = "LspAttach",
     opts = {
@@ -126,7 +131,6 @@ return {
           -- Go
           nls.builtins.diagnostics.golangci_lint,
           nls.builtins.formatting.gofumpt,
-          nls.builtins.diagnostics.staticcheck,
           -- Bash
           nls.builtins.code_actions.shellcheck,
           nls.builtins.diagnostics.shellcheck,
@@ -137,6 +141,9 @@ return {
           -- XML
           nls.builtins.diagnostics.tidy,
           nls.builtins.formatting.xmllint,
+          -- Clojure
+          nls.builtins.diagnostics.clj_kondo,
+          nls.builtins.formatting.zprint,
         },
       })
     end,

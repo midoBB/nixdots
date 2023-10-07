@@ -77,6 +77,7 @@ local mappings = {
       name = "+[D]ebugging",
     },
   },
+  r = { name = "+[R]efactoring" },
   g = {
     name = "+[G]it",
     t = { name = "+[T]oggle" },

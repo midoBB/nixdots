@@ -3,7 +3,7 @@
   workMode,
   ...
 }: {
-  imports = [./dconf.nix ./themes.nix ./discord.nix];
+  imports = [./dconf.nix ./themes.nix];
   services = {
     blueman-applet.enable = true;
     network-manager-applet.enable = true;

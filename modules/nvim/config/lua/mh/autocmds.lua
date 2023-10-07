@@ -51,6 +51,8 @@ vim.api.nvim_create_autocmd("FileType", {
     "startuptime",
     "vim",
     "notify",
+    "dbout",
+    "nvim-docs-view",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false

@@ -32,7 +32,6 @@
     nodePackages.dockerfile-language-server-nodejs
     #golang
     gopls
-    go-tools
     gofumpt
     delve
     golangci-lint
@@ -69,6 +68,7 @@
     # Clojure
     clj-kondo
     clojure-lsp
+    zprint
     #Generate types for any language from json
     nodePackages_latest.quicktype
   ];

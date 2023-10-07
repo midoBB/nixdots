@@ -10,6 +10,7 @@ return {
       },
     },
     ft = { "go", "gomod" },
+    event = "LspAttach",
     keys = {
       {
         "<leader>lct",

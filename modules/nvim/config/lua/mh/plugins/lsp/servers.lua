@@ -51,6 +51,13 @@ function M.setup()
   lspconfig.html.setup({ capabilities = capabilities })
   lspconfig.bashls.setup({ capabilities = capabilities })
   lspconfig.ruff_lsp.setup({ capabilities = capabilities })
+  lspconfig.clojure_lsp.setup({
+    root_dir = require("mh.plugins.lsp.cloj-utils").get_lsp_cwd,
+    init_options = {
+      signatureHelp = true,
+      codeLens = true,
+    },
+  })
   lspconfig.pylsp.setup({
     settings = {
       pylsp = {

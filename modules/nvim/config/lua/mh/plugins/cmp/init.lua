@@ -28,6 +28,7 @@ return {
         rg = "(RG)",
         path = "(Path)",
         cmp_tabnine = "(Tabnine)",
+        conjure = "(Conjure)",
       }
       local duplicates = {
         buffer = 1,
@@ -113,6 +114,7 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp", group_index = 1 },
           { name = "luasnip", group_index = 1 },
+          { name = "conjure", group_index = 1 },
           { name = "cmp_tabnine", group_index = 2 },
           { name = "buffer", keyword_length = 5, group_index = 3 },
           { name = "path", group_index = 3 },

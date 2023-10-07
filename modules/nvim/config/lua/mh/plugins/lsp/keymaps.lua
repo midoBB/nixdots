@@ -6,12 +6,12 @@ function M.on_attach(client, buffer)
 
   -- stylua: ignore
   self:map("gd", 'Lspsaga goto_definition', { desc = "Goto Definition" })
-  self:map("gr", "Lspsaga finder", { desc = "References" })
+  self:map("gr", "Glance references", { desc = "References" })
   self:map("gD", "Lspsaga peek_definition", { desc = "Peek Definition" })
   -- stylua: ignore
-  self:map("gI", 'Lspsaga finder imp', { desc = "Goto Implementation" })
+  self:map("gI", 'Glance implementations', { desc = "Goto Implementation" })
   -- stylua: ignore
-  self:map("gy", 'Lspsaga goto_type_definition', { desc = "Goto Type Definition" })
+  self:map("gy", 'Glance type_definitions', { desc = "Goto Type Definition" })
   self:map("K", "Lspsaga hover_doc", { desc = "Hover" })
   self:map("gK", vim.lsp.buf.signature_help, { desc = "Signature Help", has = "signatureHelp" })
   self:map("gl", function()

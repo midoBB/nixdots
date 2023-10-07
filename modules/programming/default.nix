@@ -59,6 +59,7 @@ in {
         lua
         leiningen
         clojure
+        exercism
         # elixir
         # erlangR25
         # elixir_1_14

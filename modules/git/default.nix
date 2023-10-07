@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [git-crypt commitizen];
+  home.packages = with pkgs; [git-crypt];
   programs.git = {
     enable = true;
     userName = "Mohamed Hamdi";
