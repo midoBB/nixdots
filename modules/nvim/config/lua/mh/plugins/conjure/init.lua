@@ -4,6 +4,9 @@ local M = {
   ft = { "clojure", "lua", "fennel" },
   dependencies = {
     "PaterJason/cmp-conjure",
+    "tpope/vim-dispatch",
+    "clojure-vim/vim-jack-in",
+    "radenling/vim-dispatch-neovim",
   },
 }
 
@@ -21,6 +24,9 @@ local function set_repl_winbar()
 end
 
 M.config = function()
+  if vim.bo.filetype ~= "clojure" then
+    return
+  end
   vim.g["conjure#filetype#fennel"] = "conjure.client.fennel.stdio"
   vim.g["conjure#mapping#doc_word"] = false
   vim.g["conjure#client#clojure#nrepl#connection#auto_repl#enabled"] = false
@@ -105,6 +111,7 @@ M.config = function()
 
   wk.register(mappings, { prefix = "<localleader>" })
   wk.register({
+    ["j"] = { "<cmd>Lein<cr>", name = "Jack-in", cond = vim.bo.filetype == "clojure" },
     c = {
       name = "Connect",
       cond = vim.bo.filetype == "clojure",

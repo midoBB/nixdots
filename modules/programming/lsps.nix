@@ -44,7 +44,6 @@
     sqlfluff
     # Protobuf
     protolint
-    buf-language-server
     # YAML
     nodePackages.yaml-language-server
     yamllint

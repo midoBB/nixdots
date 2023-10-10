@@ -6,6 +6,7 @@
     keyMode = "vi";
     plugins = with pkgs.tmuxPlugins; [
       sensible
+      yank
       /*
        {
       /*
