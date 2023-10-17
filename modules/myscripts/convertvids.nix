@@ -25,7 +25,7 @@
     fi
 
     # if ffmpeg -i "$original" -vf scale=$newwidth:$newheight -c:v libx264 -crf 23 -preset slow -c:a aac -b:a 128k "$newfile-720.mp4"; then
-    if ffmpeg -vaapi_device /dev/dri/renderD128 -i "$original" -vf "scale=$newwidth:$newheight:force_original_aspect_ratio=decrease,format=nv12,hwupload" -c:v h264_vaapi  -b:v 1200k -preset superfast -c:a aac -b:a 128k -v verbose "$newfile-720.mp4" ; then
+    if ffmpeg -vaapi_device /dev/dri/renderD128 -i "$original" -vf "scale=$newwidth:$newheight:force_original_aspect_ratio=decrease,format=nv12,hwupload" -c:v h264_vaapi  -b:v 2200k -preset fast -c:a aac -b:a 228k -v verbose "$newfile-720.mp4" ; then
       rm "$original"
       mv "$newfile-720.mp4" "$original"
     else

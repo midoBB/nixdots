@@ -47,4 +47,6 @@
     # some sane alternatives to mv and rm
     rename
   ];
+  # Use program without necessarily installing it prior
+  programs.nix-index-database.comma.enable = true;
 }

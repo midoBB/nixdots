@@ -11,7 +11,6 @@ return {
       } },
 
       { "b0o/SchemaStore.nvim", ft = { "json", "yaml" } },
-      { "weilbith/nvim-code-action-menu", event = "LspAttach" },
     },
     config = function()
       require("mh.plugins.lsp.servers").setup()

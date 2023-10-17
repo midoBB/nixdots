@@ -21,6 +21,7 @@
         jetbrains.idea-ultimate
         jetbrains.datagrip
         postman
+        sublime4
         # office suite
         libreoffice
         #ereader software
