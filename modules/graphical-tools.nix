@@ -27,10 +27,9 @@
         #ereader software
         pkgs-unstable.calibre
         # gaming
-        # steam-run
+        steam-run
         #torrent
         transmission-gtk
-        steam-run
       ]
     );
   /*
