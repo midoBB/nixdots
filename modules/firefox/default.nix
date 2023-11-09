@@ -9,7 +9,6 @@
     profiles.default = {
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         sponsorblock
-        ublock-origin
         darkreader
         bitwarden
         tampermonkey

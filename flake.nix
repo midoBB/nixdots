@@ -111,6 +111,7 @@
         ./modules/media.nix
         ./modules/graphical-tools.nix
         ./modules/firefox
+        ./modules/kodi.nix
       ];
     };
     home-work = {
