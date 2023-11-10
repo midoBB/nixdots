@@ -53,7 +53,7 @@ in {
         fingerprint = {
           HDMI-1 = small;
           DP-1 = big;
-          eDP = aero;
+          eDP-1 = aero;
         };
         config = {
           DP-1 = {
