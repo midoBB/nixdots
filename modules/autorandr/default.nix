@@ -28,7 +28,7 @@ in {
           esac
           feh --randomize --bg-fill ~/.local/share/wallpapers/*
           # i3-msg restart
-          polybar-msg cmd restart
+          systemctl --user restart polybar.service
         '';
       };
     };
