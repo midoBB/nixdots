@@ -66,13 +66,13 @@ in {
           };
           HDMI-1 = {
             enable = true;
-            crtc = 1;
+            crtc = 2;
             primary = false;
             position = "1920x0";
             mode = "1600x900";
             rate = "60.00";
           };
-          eDP = {enable = false;};
+          eDP-1 = {enable = false;};
         };
       };
       "work-docked" = {
