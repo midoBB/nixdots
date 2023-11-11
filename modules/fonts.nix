@@ -2,76 +2,88 @@
   pkgs,
   colorscheme,
   ...
-}: let
-  variants = {
-    design = {
-      tilde = "low";
-      asterisk = "penta-low";
-      underscore = "low";
-      at = "fourfold";
-      zero = "dotted";
-      dollar = "open";
-      percent = "dots";
-      four = "semi-open-non-crossing";
-    };
+}:
+/*
+let
+*/
+/*
+   variants = {
+  design = {
+    tilde = "low";
+    asterisk = "penta-low";
+    underscore = "low";
+    at = "fourfold";
+    zero = "dotted";
+    dollar = "open";
+    percent = "dots";
+    four = "semi-open-non-crossing";
   };
-  weights = {
-    extralight = {
-      shape = 200;
-      menu = 200;
-      css = 200;
-    };
-    regular = {
-      shape = 400;
-      menu = 400;
-      css = 400;
-    };
-    bold = {
-      shape = 700;
-      menu = 700;
-      css = 700;
-    };
+};
+weights = {
+  extralight = {
+    shape = 200;
+    menu = 200;
+    css = 200;
   };
-  slopes = {
-    upright = {
-      angle = 0;
-      shape = "upright";
-      menu = "upright";
-      css = "normal";
-    };
+  regular = {
+    shape = 400;
+    menu = 400;
+    css = 400;
+  };
+  bold = {
+    shape = 700;
+    menu = 700;
+    css = 700;
+  };
+};
+slopes = {
+  upright = {
+    angle = 0;
+    shape = "upright";
+    menu = "upright";
+    css = "normal";
+  };
 
-    italic = {
-      angle = 9.4;
-      shape = "italic";
-      menu = "italic";
-      css = "italic";
-    };
+  italic = {
+    angle = 9.4;
+    shape = "italic";
+    menu = "italic";
+    css = "italic";
   };
-  buildIosevka = pkgs.iosevka.override;
-  iosevka-ss08 = buildIosevka {
-    set = "ss08";
-    privateBuildPlan = {
-      family = "Iosevka";
+};
+buildIosevka = pkgs.iosevka.override;
+iosevka-ss08 = buildIosevka {
+  set = "ss08";
+  privateBuildPlan = {
+    family = "Iosevka";
 
-      inherit variants weights slopes;
-    };
+    inherit variants weights slopes;
   };
-  iosevka-ss08-term = buildIosevka {
-    set = "ss08-term";
-    privateBuildPlan = {
-      family = "Iosevka Term";
-      spacing = "term";
+};
+iosevka-ss08-term = buildIosevka {
+  set = "ss08-term";
+  privateBuildPlan = {
+    family = "Iosevka Term";
+    spacing = "term";
 
-      inherit variants weights slopes;
-    };
+    inherit variants weights slopes;
   };
-in {
+};
+*/
+/*
+in
+*/
+{
   home.packages = with pkgs; [
     # iosevka-ss08-term
     victor-mono
     input-fonts
     # iosevka-ss08
     pkgs.nur.repos.sagikazarmark.sf-pro
+    pkgs.nur.repos.xeals.monaspace-argon
+    pkgs.nur.repos.xeals.monaspace-krypton
+    pkgs.nur.repos.xeals.monaspace-radon
+
     source-code-pro
     cantarell-fonts
   ];

@@ -25,7 +25,6 @@
     python310Packages.python-lsp-server
     python310Packages.pylsp-rope
     python310Packages.python-lsp-ruff
-    python310Packages.ruff-lsp
     ruff
     #Docker
     pkgs.hadolint

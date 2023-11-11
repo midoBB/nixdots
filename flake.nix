@@ -61,7 +61,13 @@
         allowUnfreePredicate = pkg: true;
         allowBroken = true;
         input-fonts.acceptLicense = true;
-        permittedInsecurePackages = ["openssl-1.1.1u" "openssl-1.1.1v" "electron-21.4.0"];
+        permittedInsecurePackages = [
+          "openssl-1.1.1u"
+          "openssl-1.1.1w"
+          "openssl-1.1.1v"
+          "electron-21.4.0"
+          "electron-24.8.6"
+        ];
       };
 
       nixpkgs.overlays = [
@@ -73,9 +79,11 @@
 
       # Let Home Manager install and manage itself.
       programs.home-manager.enable = true;
-      home.stateVersion = "23.05";
-      home.homeDirectory = "/home/mh";
-      home.username = "mh";
+      home = {
+        stateVersion = "23.05";
+        homeDirectory = "/home/mh";
+        username = "mh";
+      };
       imports = [
         ./modules/wezterm
         ./modules/alacritty
