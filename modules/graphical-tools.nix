@@ -27,7 +27,7 @@
         #ereader software
         pkgs-unstable.calibre
         # gaming
-        steam-run
+        (steam.override {extraPkgs = pkgs: [openssl_1_1];}).run
         #torrent
         transmission-gtk
       ]
