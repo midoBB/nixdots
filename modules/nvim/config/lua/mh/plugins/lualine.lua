@@ -374,11 +374,6 @@ return {
       tabline = {},
       extensions = { "quickfix", "nvim-tree", "nvim-dap-ui", "fugitive", outline, diffview },
     })
-    vim.api.nvim_create_augroup("lualine_augroup", { clear = true })
-    vim.api.nvim_create_autocmd("User LspProgressStatusUpdated", {
-      group = "lualine_augroup",
-      callback = require("lualine").refresh,
-    })
     --[[ -- Workaround to make the global statusline look shifted over when nvim tree is
     -- active
     local nvim_tree_shift = {
