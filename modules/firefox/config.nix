@@ -91,12 +91,8 @@
       url = "https://news.ycombinator.com/front";
     }
     {
-      title = "Twitch";
-      url = "https://www.twitch.tv/";
-    }
-    {
-      title = "Outlook";
-      url = "http://outlook.com/";
+      title = "Discord";
+      url = "http://app.discord.com/";
     }
     {
       title = "Mangadex";
@@ -109,6 +105,10 @@
     {
       title = "chatGPT";
       url = "https://chat.openai.com";
+    }
+    {
+      title = "Phind";
+      url = "https://phind.com";
     }
   ];
 }
