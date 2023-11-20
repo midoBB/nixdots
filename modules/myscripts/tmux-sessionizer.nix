@@ -13,6 +13,7 @@
 
     selected_name=$(basename "$selected" | tr . _)
     tm() {
+      zoxide add "$selected"
       if [ -z "$selected" ]; then
         tmux switch-client -l "$selected_name"
       else
