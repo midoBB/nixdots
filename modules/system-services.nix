@@ -28,24 +28,23 @@
     ''; # Removes the need to enter passwords for graphical needs
     pam.services.lightdm.enableGnomeKeyring = true;
   };
-  environment.systemPackages = with pkgs; [
-    vim
-    gnome.dconf-editor
-    python3Full
-    sqlite
-    cachix
-    ansible
-  ];
-  environment.mate.excludePackages = with pkgs; [
-    mate.pluma
-    /*
-    mate.mate-notification-daemon
-    */
-  ];
-  # Themes for QT apps. Doesn't work in home manager config
-  environment.variables = {
-    QT_STYLE_OVERRIDE = "kvantum";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
+  environment = {
+    systemPackages = with pkgs; [
+      vim
+      gnome.dconf-editor
+      python3Full
+      sqlite
+      cachix
+      ansible
+    ];
+    mate.excludePackages = with pkgs; [
+      mate.pluma
+    ];
+    # Themes for QT apps. Doesn't work in home manager config
+    variables = {
+      QT_STYLE_OVERRIDE = "kvantum";
+      QT_QPA_PLATFORMTHEME = "qt5ct";
+    };
   };
 
   services = {

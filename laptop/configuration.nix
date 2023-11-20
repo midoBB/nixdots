@@ -28,7 +28,14 @@
     # https://github.com/NixOS/nixpkgs/issues/124215
     settings.extra-sandbox-paths = ["/bin/sh=${pkgs.bash}/bin/sh"];
   };
-
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
   # Enables wireless support via wpa_supplicant.
   networking = {
     hostName = "laptop";
@@ -50,12 +57,7 @@
       LC_TIME = "fr_FR.UTF-8";
     };
   };
-  time.timeZone = "Africa/Tunis"; # Time zone and internationalisation
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [wget curl git];
-  environment.pathsToLink = ["/libexec" "/share/zsh"];
+  time.timeZone = "Africa/Tunis";
 
   # Some programs need SUID wrappers, can be configured further or are
 
@@ -91,14 +93,13 @@
   };
 
   # Enable sound.
-  sound.enable = true;
-  hardware.bluetooth.enable = true;
-  hardware.pulseaudio.enable = true;
-  hardware.enableRedistributableFirmware = true;
-
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
+  hardware = {
+    bluetooth.enable = true;
+    enableRedistributableFirmware = true;
+    opengl = {
+      enable = true;
+      driSupport = true;
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -123,7 +124,12 @@
     shell = pkgs.zsh;
   };
   programs.zsh.enable = true;
-  environment.shells = with pkgs; [zsh];
+  environment = {
+    # List packages installed in system profile. To search, run:
+    systemPackages = with pkgs; [wget curl git];
+    pathsToLink = ["/libexec" "/share/zsh"];
+    shells = with pkgs; [zsh];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
