@@ -17,6 +17,11 @@ return {
     end,
   },
   {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+  },
+  {
     "dnlhc/glance.nvim",
     event = "LspAttach",
     config = true,
@@ -111,7 +116,7 @@ return {
               "markdown",
             },
           }),
-          nls.builtins.diagnostics.eslint_d.with({
+          nls.builtins.diagnostics.eslint.with({
             args = {
               "-f",
               "json",
@@ -120,7 +125,7 @@ return {
               "$FILENAME",
             },
           }),
-          nls.builtins.code_actions.eslint_d,
+          nls.builtins.code_actions.eslint,
           --markdown
           nls.builtins.diagnostics.proselint,
           nls.builtins.code_actions.proselint,
