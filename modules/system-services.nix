@@ -79,7 +79,7 @@
     mime.enable = true;
     portal = {enable = true;};
   };
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     # Fonts
     vistafonts
     jetbrains-mono

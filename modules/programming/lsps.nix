@@ -69,5 +69,11 @@
     zprint
     #Generate types for any language from json
     nodePackages_latest.quicktype
+    #Scala
+    dotty
+    scalafmt
+    sbt
+    coursier
+    metals
   ];
 }

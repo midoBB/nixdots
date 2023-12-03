@@ -33,7 +33,6 @@ in {
       yarn
       # python
       (python3.withPackages (ps: with ps; [setuptools pip debugpy virtualenv beautifulsoup4 requests lxml]))
-      autoflake
       python3Packages.ipython
       #  rust
       # cargo

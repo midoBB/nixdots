@@ -20,7 +20,7 @@
         pkgs-unstable.thunderbird-bin
         jetbrains.idea-ultimate
         jetbrains.datagrip
-        postman
+        emacs29
         sublime4
         # office suite
         libreoffice

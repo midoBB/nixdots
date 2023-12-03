@@ -75,7 +75,12 @@
         "_GTK_FRAME_EXTENTS@:c"
         "class_g = 'Polybar'"
       ];
-
+      popup_menu = {
+        opacity = 1.0;
+        shadow = false;
+        full-shadow = false;
+        focus = false;
+      };
       # Radius
       corner-radius = 10;
       round-borders = 1;

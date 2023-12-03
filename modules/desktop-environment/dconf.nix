@@ -34,11 +34,11 @@
       "peripherals/touchpad/horizontal-two-finger-scrolling" = true;
       "interface/font-name" = "SF Pro Display Regular 11";
       "interface/document-font-name" = "SF Pro Display Regular 11";
-      "interface/monospace-font-name" = "MesloLGS Nerd Font Regular 13";
+      "interface/monospace-font-name" = "Monaspace Radon Regular 13";
       "font-rendering/hinting" = "full";
       "interface/color-scheme" = "prefer-dark";
       "interface/icon-theme" = "Qogir-dark";
-      "interface/gtk-theme" = "Materia-dark-compact";
+      "interface/gtk-theme" = "Qogir-Dark";
       "peripherals/mouse/cursor-theme" = "Qogir-dark";
     };
   };

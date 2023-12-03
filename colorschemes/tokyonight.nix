@@ -8,10 +8,10 @@ in rec {
   # too much effort though. Creating a whole theme for vim
   vim-name = "tokyonight";
   vim-statusline = "tokyonight";
-  gtk-name = "Materia-dark-compact";
-  qt-theme = "MateriaDark";
-  gtk-icon-name = "Qogir-Dark";
-  gtk-cursor-name = "Qogir-Dark";
+  gtk-name = "Qogir-Dark";
+  qt-theme = "Qogir-dark-solid";
+  gtk-icon-name = "Qogir-dark";
+  gtk-cursor-name = "Qogir-dark";
   bat-theme-name = "base16";
   deadd-css-file = ../modules/deadd/tokyonight.css;
 

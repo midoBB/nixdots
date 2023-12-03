@@ -5,10 +5,7 @@
   ...
 }: {
   programs = {
-    exa = {
-      enable = true;
-      package = pkgs-unstable.eza;
-    };
+    eza.enable = true;
     nix-index.enable = true;
     atuin = {
       enable = true;
@@ -137,6 +134,9 @@
         bindkey -M emacs '^[[3;5~' kill-word
         bindkey -M viins '^[[3;5~' kill-word
         bindkey -M vicmd '^[[3;5~' kill-word
+
+        #Add coursier to bin path:
+        export PATH=$PATH:/home/mh/.local/share/coursier/bin
       '';
       initExtraBeforeCompInit = ''
         # p10k instant prompt
@@ -153,7 +153,7 @@
       };
       enableCompletion = true;
       enableAutosuggestions = true;
-      enableSyntaxHighlighting = true;
+      syntaxHighlighting.enable = true;
       shellAliases = import ./aliases.nix;
       oh-my-zsh = {
         enable = true;

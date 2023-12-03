@@ -9,14 +9,9 @@
     libsForQt5.qtstyleplugin-kvantum
     qt5ct
     xdg-utils
-    dracula-theme
-    moka-icon-theme
-    numix-icon-theme-square
-    whitesur-icon-theme
-    palenight-theme
-    materia-theme
-    materia-kde-theme
     qogir-icon-theme
+    qogir-kde
+    qogir-theme
   ];
   # Settings for QT/Kde theme
 
@@ -37,7 +32,7 @@
     "Kvantum/kvantum.kvconfig" = {
       text = ''
         [General]
-        theme=${colorscheme.qt-theme}
+        theme=Qogir-dark-solid
       '';
     };
   };

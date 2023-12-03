@@ -16,6 +16,7 @@ return {
     },
     config = function()
       require("nvim-dap-repl-highlights").setup()
+      require("nvim-treesitter.configs").setup({})
       require("nvim-treesitter.configs").setup({
         ensure_installed = {
           "c",
@@ -66,7 +67,6 @@ return {
         },
         indent = { enable = true },
         autotag = { enable = true },
-        context_commentstring = { enable = true, enable_autocmd = false },
         incremental_selection = {
           enable = true,
           keymaps = {
