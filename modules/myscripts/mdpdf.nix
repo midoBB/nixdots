@@ -32,6 +32,6 @@
         "$1" -o "$path/$name.pdf" && xdg-open "$path/$name.pdf"
   '';
 in {
-  home.packages = [mdpdf tex pkgs.coreutils pkgs.pandoc pkgs.fd pkgs.xdg-utils];
+  home.packages = [mdpdf tex pkgs.coreutils pkgs.input-fonts pkgs.pandoc pkgs.fd pkgs.xdg-utils];
   home.file = {".local/opt/mdpdf/head.tex".source = ./head.tex;};
 }

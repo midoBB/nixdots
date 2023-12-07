@@ -39,6 +39,8 @@ in {
     then []
     else [
       convertvideos
+      pkgs.libva-utils
+      pkgs.glxinfo
       pkgs.coreutils
       # tools needed for my ocr setup
       pkgs.ffmpeg

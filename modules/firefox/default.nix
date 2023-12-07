@@ -5,7 +5,7 @@
 }: {
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox;
+    package = pkgs.firefox-bin;
     profiles.default = {
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         sponsorblock
