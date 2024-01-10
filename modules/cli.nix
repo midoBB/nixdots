@@ -3,6 +3,7 @@
     # CLI tools / Terminal facification
     docker-compose
     ngrok
+    mosh
     nix-du
     unrar
     unzip

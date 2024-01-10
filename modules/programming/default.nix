@@ -31,9 +31,11 @@ in {
       # JavaScript
       nodejs_18
       yarn
+      corepack
       # python
       (python3.withPackages (ps: with ps; [setuptools pip debugpy virtualenv beautifulsoup4 requests lxml]))
       python3Packages.ipython
+      poetry
       #  rust
       # cargo
       # perl # this is required by rust

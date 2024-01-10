@@ -23,7 +23,7 @@ return {
       },
     },
   },
-  {
+  --[[ {
     "rcarriga/nvim-notify",
     event = "VeryLazy",
     opts = {
@@ -40,7 +40,7 @@ return {
       require("notify").setup(opts)
       vim.notify = require("notify")
     end,
-  },
+  }, ]]
   {
     "monaqa/dial.nvim",
     keys = {

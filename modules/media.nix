@@ -98,6 +98,11 @@
     ++ (
       if workMode
       then []
-      else [spotify deadbeef]
+      else [
+        spotify
+        deadbeef
+        handbrake
+        mkvtoolnix
+      ]
     );
 }

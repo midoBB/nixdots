@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  workMode,
+  ...
+}: {
   boot.plymouth.enable = true;
   programs.dconf.enable = true;
   console.keyMap = "fr";
@@ -48,6 +52,8 @@
   };
 
   services = {
+    openssh.enable = true;
+    tailscale.enable = true;
     dbus = {
       enable = true;
       packages = [pkgs.dconf];

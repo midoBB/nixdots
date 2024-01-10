@@ -1,7 +1,6 @@
 local M = {}
 
 local lsp_utils = require("mh.plugins.lsp.utils")
-
 local navic = require("nvim-navic")
 function M.setup()
   lsp_utils.on_attach(function(client, bufnr)
@@ -50,7 +49,6 @@ function M.setup()
   lspconfig.eslint.setup({ capabilities = capabilities })
   lspconfig.html.setup({ capabilities = capabilities })
   lspconfig.bashls.setup({ capabilities = capabilities })
-  lspconfig.ruff_lsp.setup({ capabilities = capabilities })
   lspconfig.clojure_lsp.setup({
     root_dir = require("mh.plugins.lsp.cloj-utils").get_lsp_cwd,
     init_options = {

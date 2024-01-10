@@ -13,6 +13,7 @@
         jetbrains.idea-community
       ]
       else [
+        trayscale
         rawtherapee
         digikam
         krita

@@ -100,7 +100,7 @@
     }
     {
       title = "Media Server";
-      url = "http://localhost:8090/";
+      url = "http://pi/";
     }
     {
       title = "chatGPT";

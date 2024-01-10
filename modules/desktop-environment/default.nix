@@ -120,6 +120,8 @@
         "image/png" = "qimgv.desktop";
         "image/svg" = "qimgv.desktop";
         "image/tiff" = "qimgv.desktop";
+        "video/x-matroska" = "mpv.desktop";
+        "video/mp4" = "mpv.desktop";
       };
     };
   };

@@ -7,19 +7,6 @@
     plugins = with pkgs.tmuxPlugins; [
       sensible
       yank
-      /*
-       {
-      /*
-      plugin = dracula;
-      */
-      /*
-           extraConfig = ''
-          set -g @dracula-plugins "battery time"
-          set -g @dracula-show-powerline true
-          set -g @dracula-military-time true
-        '';
-      }
-      */
     ];
 
     extraConfig = ''

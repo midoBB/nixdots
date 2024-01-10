@@ -9,11 +9,11 @@ return {
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
       "lukas-reineke/cmp-rg",
-      {
-        "tzachar/cmp-tabnine",
-        build = "./install.sh",
-        config = true,
-      },
+      --[[ { ]]
+      --[[   "tzachar/cmp-tabnine", ]]
+      --[[   build = "./install.sh", ]]
+      --[[   config = true, ]]
+      --[[ }, ]]
     },
     opts = function()
       local cmp = require("cmp")
@@ -27,7 +27,7 @@ return {
         buffer = "(Buffer)",
         rg = "(RG)",
         path = "(Path)",
-        cmp_tabnine = "(Tabnine)",
+        --[[ cmp_tabnine = "(Tabnine)", ]]
         conjure = "(Conjure)",
       }
       local duplicates = {
@@ -115,7 +115,7 @@ return {
           { name = "nvim_lsp", group_index = 1 },
           { name = "luasnip", group_index = 1 },
           { name = "conjure", group_index = 1 },
-          { name = "cmp_tabnine", group_index = 2 },
+          --[[ { name = "cmp_tabnine", group_index = 2 }, ]]
           { name = "buffer", keyword_length = 5, group_index = 3 },
           { name = "path", group_index = 3 },
           { name = "rg", keyword_length = 5, group_index = 3 },

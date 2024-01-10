@@ -35,7 +35,7 @@
     nodePackages."@prisma/language-server"
     docker-compose-language-service
     nodePackages.vscode-langservers-extracted
-    nodePackages.prettier_d_slim
+    prettierd
     nodePackages.eslint_d
     nodePackages.typescript-language-server
     nodePackages.markdownlint-cli

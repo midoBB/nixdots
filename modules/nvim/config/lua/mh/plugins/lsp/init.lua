@@ -221,8 +221,8 @@ return {
           -- Lua
           nls.builtins.formatting.stylua,
           -- Python
-          nls.builtins.formatting.ruff,
-          nls.builtins.diagnostics.ruff,
+          nls.builtins.formatting.black,
+          --[[ nls.builtins.diagnostics.ruff, ]]
 
           nls.builtins.formatting.alejandra, -- for nix
           nls.builtins.code_actions.statix, -- for nix
@@ -237,7 +237,7 @@ return {
           }),
           nls.builtins.formatting.protolint, --proto files
           -- webdev
-          nls.builtins.formatting.prettier_d_slim.with({
+          nls.builtins.formatting.prettierd.with({
             filetypes = {
               "javascript",
               "javascriptreact",
