@@ -13,6 +13,7 @@
         jetbrains.idea-community
       ]
       else [
+        jetbrains.goland
         trayscale
         rawtherapee
         digikam

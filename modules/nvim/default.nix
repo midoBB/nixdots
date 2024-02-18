@@ -46,6 +46,8 @@
     nodePackages.yaml-language-server
     yamllint
     fzy
+    rustup
+    cargo-cross
   ];
   xdg.configFile."nvim" = {
     source = ./config;
