@@ -29,7 +29,10 @@
   }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    pkgs-unstable = import nixpkgs-unstable {
+      inherit system;
+      config.allowUnfree = true;
+    };
     mkPkgs = pkgs: extraOverlays:
       import pkgs {
         inherit system;
@@ -67,6 +70,7 @@
           "openssl-1.1.1v"
           "electron-21.4.0"
           "electron-24.8.6"
+          "electron-25.9.0"
         ];
       };
 

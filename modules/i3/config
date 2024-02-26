@@ -136,6 +136,7 @@ bindsym Mod4+u move workspace to output left
 for_window [class="scrcpy"] floating enable
 assign [class="mpv"] $ws5
 assign [class="thunderbird"] $ws7
+assign [class="ticktick"] $ws7
 assign [class="Mailspring"] $ws7
 assign [class="discord"] $ws7
 assign [class="Skype"] $ws7

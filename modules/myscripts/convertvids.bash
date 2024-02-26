@@ -16,7 +16,7 @@ else
     newwidth=1280
     newheight=720
 fi
-if ffmpeg -init_hw_device vaapi=foo:/dev/dri/renderD128 -hwaccel vaapi -hwaccel_output_format vaapi -hwaccel_device foo -i  "$original" -filter_hw_device foo -vf "scale_vaapi=w=$newwidth:h=$newheight,format=nv12|vaapi,hwupload" -c:v h264_vaapi -b:v 2M -maxrate 2M -preset slow -c:a aac -b:a 128k "$newfile-720.mp4" ; then
+if ffmpeg -init_hw_device vaapi=foo:/dev/dri/renderD128 -hwaccel vaapi -hwaccel_output_format vaapi -hwaccel_device foo -i  "$original" -filter_hw_device foo -vf "scale_vaapi=w=$newwidth:h=$newheight,format=nv12|vaapi,hwupload" -c:v h264_vaapi -b:v 2M -maxrate 2M  -bufsize  2M -preset slow -c:a aac -b:a 128k "$newfile-720.mp4" ; then
     rm "$original"
     mv "$newfile-720.mp4" "$original"
 else

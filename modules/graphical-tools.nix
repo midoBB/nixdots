@@ -20,6 +20,7 @@
         krita
         birdtray
         pkgs-unstable.thunderbird-bin
+        pkgs-unstable.ticktick
         jetbrains.idea-ultimate
         jetbrains.datagrip
         emacs29

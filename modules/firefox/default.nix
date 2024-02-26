@@ -14,7 +14,6 @@ in {
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         sponsorblock
         darkreader
-        bitwarden
         tampermonkey
         pkgs.myff.imagus
         pkgs.myff.video-downloadhelper
