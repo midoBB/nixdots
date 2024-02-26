@@ -175,11 +175,11 @@ smart_gaps on
 smart_borders on
 
 
-
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id redshift-gtk -l 36:10
 exec --no-startup-id kdeconnect-indicator
 exec --no-startup-id birdtray
+exec --no-startup-id ticktick
 exec --no-startup-id autorandr --change
 exec --no-startup-id synology-drive
 exec_always --no-startup-id indicator-sound-switcher
@@ -187,3 +187,4 @@ exec_always --no-startup-id indicator-sound-switcher
 # exec --no-startup-id nm-applet
 exec --no-startup-id mate-settings-daemon
 exec --no-startup-id mate-power-manager
+exec --no-startup-id "i3-msg 'workspace 7; append_layout /home/mh/.config/i3/workspace7.json'"
