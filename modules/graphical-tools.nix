@@ -33,6 +33,8 @@
         (steam.override {extraPkgs = pkgs: [openssl_1_1];}).run
         #torrent
         transmission-gtk
+
+        rpi-imager
       ]
     );
   /*
