@@ -71,6 +71,7 @@ return {
       { "<leader>gs", "<cmd>Neogit kind=tab<cr>", desc = "Status" },
     },
   },
+
   { --[[ FIXME: This is such an ugly hack ]]
     "akinsho/git-conflict.nvim",
     event = { "BufReadPre", "BufWritePre" },

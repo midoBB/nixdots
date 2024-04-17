@@ -28,7 +28,6 @@ return {
         rg = "(RG)",
         path = "(Path)",
         --[[ cmp_tabnine = "(Tabnine)", ]]
-        conjure = "(Conjure)",
       }
       local duplicates = {
         buffer = 1,
@@ -114,7 +113,6 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp", group_index = 1 },
           { name = "luasnip", group_index = 1 },
-          { name = "conjure", group_index = 1 },
           --[[ { name = "cmp_tabnine", group_index = 2 }, ]]
           { name = "buffer", keyword_length = 5, group_index = 3 },
           { name = "path", group_index = 3 },
@@ -209,9 +207,12 @@ return {
         function()
           return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<C-j>"
         end,
-        expr = true, remap = true, silent = true, mode = "i",
+        expr = true,
+        remap = true,
+        silent = true,
+        mode = "i",
       },
-      { "<C-j>", function() require("luasnip").jump(1) end, mode = "s" },
+      { "<C-j>", function() require("luasnip").jump(1) end,  mode = "s" },
       { "<C-k>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
     },
     config = function(_, opts)

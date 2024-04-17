@@ -35,6 +35,7 @@
         transmission-gtk
 
         rpi-imager
+        gparted
       ]
     );
   /*

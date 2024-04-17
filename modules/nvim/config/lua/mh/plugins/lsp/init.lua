@@ -1,19 +1,18 @@
 return {
   {
-    "mrcjkb/rustaceanvim",
-    version = "^4", -- Recommended
-    ft = { "rust" },
-  },
-  {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
-      { "smjonas/inc-rename.nvim", config = true, event = "LspAttach" },
-      { "SmiteshP/nvim-navic", event = "LspAttach" },
-      { "kosayoda/nvim-lightbulb", event = "LspAttach", opts = {
-        autocmd = { enabled = true },
-      } },
+      { "folke/neoconf.nvim",      cmd = "Neoconf",    config = true },
+      { "smjonas/inc-rename.nvim", config = true,      event = "LspAttach" },
+      { "SmiteshP/nvim-navic",     event = "LspAttach" },
+      {
+        "kosayoda/nvim-lightbulb",
+        event = "LspAttach",
+        opts = {
+          autocmd = { enabled = true },
+        },
+      },
 
       { "b0o/SchemaStore.nvim", ft = { "json", "yaml" } },
     },
@@ -189,116 +188,6 @@ return {
     },
   },
   {
-    "nvimtools/none-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    ft = {
-      "lua",
-      "python",
-      "nix",
-      "prisma",
-      "sql",
-      "proto",
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact",
-      "vue",
-      "html",
-      "css",
-      "json",
-      "jsonc",
-      "yaml",
-      "graphql",
-      "handlebars",
-      "svelte",
-      "markdown",
-      "dockerfile",
-      "xml",
-      "go",
-      "bash",
-      "zsh",
-      "sh",
-    },
-    config = function()
-      local nls = require("null-ls")
-      nls.setup({
-        sources = {
-          -- Lua
-          nls.builtins.formatting.stylua,
-          -- Python
-          nls.builtins.formatting.black,
-          --[[ nls.builtins.diagnostics.ruff, ]]
-
-          nls.builtins.formatting.alejandra, -- for nix
-          nls.builtins.code_actions.statix, -- for nix
-          nls.builtins.diagnostics.statix, -- for nix
-          nls.builtins.formatting.prismaFmt, -- for node prisma db orm
-          -- sql
-          nls.builtins.diagnostics.sqlfluff.with({
-            extra_args = { "--dialect", "sqlite" },
-          }),
-          nls.builtins.formatting.sqlfluff.with({
-            extra_args = { "--dialect", "sqlite" },
-          }),
-          nls.builtins.formatting.protolint, --proto files
-          -- webdev
-          nls.builtins.formatting.prettierd.with({
-            filetypes = {
-              "javascript",
-              "javascriptreact",
-              "typescript",
-              "typescriptreact",
-              "vue",
-              "scss",
-              "less",
-              "html",
-              "css",
-              "json",
-              "jsonc",
-              "yaml",
-              "graphql",
-              "handlebars",
-              "svelte",
-              "markdown",
-            },
-          }),
-          nls.builtins.diagnostics.eslint.with({
-            args = {
-              "-f",
-              "json",
-              "--stdin",
-              "--stdin-filename",
-              "$FILENAME",
-            },
-          }),
-          nls.builtins.code_actions.eslint,
-          --markdown
-          nls.builtins.diagnostics.proselint,
-          nls.builtins.code_actions.proselint,
-          nls.builtins.diagnostics.markdownlint_cli2,
-          -- Docker files
-          nls.builtins.diagnostics.hadolint,
-          -- Go
-          nls.builtins.diagnostics.golangci_lint,
-          nls.builtins.formatting.gofumpt,
-          -- Bash
-          nls.builtins.code_actions.shellcheck,
-          nls.builtins.diagnostics.shellcheck,
-          nls.builtins.formatting.beautysh,
-          -- Yaml
-          nls.builtins.diagnostics.yamllint,
-          nls.builtins.formatting.jq,
-          -- XML
-          nls.builtins.diagnostics.tidy,
-          nls.builtins.formatting.xmllint,
-          -- Clojure
-          nls.builtins.diagnostics.clj_kondo,
-          nls.builtins.formatting.zprint,
-        },
-      })
-    end,
-  },
-  {
     "j-hui/fidget.nvim",
     tag = "legacy",
     event = "LspAttach",
@@ -322,5 +211,43 @@ return {
     "VidocqH/lsp-lens.nvim",
     event = "LspAttach",
     config = true,
+  },
+  {
+    "creativenull/efmls-configs-nvim",
+    dependencies = { "neovim/nvim-lspconfig" },
+    config = function()
+      local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+      if not lspconfig_status_ok then
+        return
+      end
+
+
+      local efmls_config = {
+        filetypes = {
+          "java",
+          "sh",
+          "lua",
+          "go",
+          "svelte",
+          "yaml",
+          "lua",
+          "markdown",
+          "python",
+          "gitcommit",
+        },
+        settings = {},
+        init_options = {
+          documentFormatting = true,
+          documentRangeFormatting = true,
+          hover = true,
+          documentSymbol = true,
+          codeAction = true,
+          completion = true,
+        },
+      }
+
+      lspconfig.efm.setup(vim.tbl_extend("force", efmls_config, {
+      }))
+    end,
   },
 }

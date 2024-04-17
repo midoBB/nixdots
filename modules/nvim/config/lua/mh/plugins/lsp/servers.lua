@@ -6,7 +6,7 @@ function M.setup()
   lsp_utils.on_attach(function(client, bufnr)
     require("mh.plugins.lsp.format").on_attach(client, bufnr)
     require("mh.plugins.lsp.keymaps").on_attach(client, bufnr)
-    if client.server_capabilities.documentSymbolProvider then
+    if client.server_capabilities.documentSymbolProvider and client.name ~= "efm" then
       navic.attach(client, bufnr)
     end
   end)

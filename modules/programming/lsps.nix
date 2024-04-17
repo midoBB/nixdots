@@ -75,5 +75,8 @@
     sbt
     coursier
     metals
+
+
+    efm-langserver
   ];
 }

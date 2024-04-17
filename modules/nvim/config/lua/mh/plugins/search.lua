@@ -3,14 +3,24 @@ return {
     "mg979/vim-visual-multi",
     event = { "BufReadPre", "BufNewFile" },
   },
+  {
+
+    {
+      "axieax/urlview.nvim",
+      cmd = "UrlView",
+      keys = {
+        { "<A-u>", "<Cmd>UrlView<CR>", desc = "Open URLs", mode = "n" },
+      },
+    },
+  },
   "romainl/vim-cool",
   {
     "kevinhwang91/nvim-hlslens",
     keys = {
-      { "n", [[<Cmd>execute('normal! ' . v:count1 . 'nzzzv')<CR><Cmd>lua require('hlslens').start()<CR>]] },
-      { "N", [[<Cmd>execute('normal! ' . v:count1 . 'Nzzzv')<CR><Cmd>lua require('hlslens').start()<CR>]] },
-      { "*", [[*<Cmd>lua require('hlslens').start()<CR>]] },
-      { "#", [[#<Cmd>lua require('hlslens').start()<CR>]] },
+      { "n",  [[<Cmd>execute('normal! ' . v:count1 . 'nzzzv')<CR><Cmd>lua require('hlslens').start()<CR>]] },
+      { "N",  [[<Cmd>execute('normal! ' . v:count1 . 'Nzzzv')<CR><Cmd>lua require('hlslens').start()<CR>]] },
+      { "*",  [[*<Cmd>lua require('hlslens').start()<CR>]] },
+      { "#",  [[#<Cmd>lua require('hlslens').start()<CR>]] },
       { "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]] },
       { "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]] },
     },
@@ -112,6 +122,7 @@ return {
           end
         end
       end
+
       Map("n", "<C-c>", "<cmd>lua ToggleQF('q')<CR>", { desc = "Toggle quickfix window" })
     end,
   },

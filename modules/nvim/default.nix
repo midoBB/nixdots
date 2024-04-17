@@ -46,9 +46,10 @@
     nodePackages.yaml-language-server
     yamllint
     fzy
-    rustup
-    cargo-cross
+
+    efm-langserver
   ];
+  xdg.configFile."efm-langserver/config.yaml".source = ./efm.yaml;
   xdg.configFile."nvim" = {
     source = ./config;
     recursive = true;

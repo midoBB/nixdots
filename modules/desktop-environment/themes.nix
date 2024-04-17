@@ -54,7 +54,7 @@
       "file:///home/${username}/Courses Courses"
       "file:///home/${username}/Workspace Workspace"
       "file:///home/${username}/Drive Drive"
-      "smb://192.168.31.18/nas/Media Media"
+      "smb://192.168.31.18/media Media"
     ];
   };
 }
