@@ -1,5 +1,7 @@
 version: 2
 tools:
+  alejandra: &alejandra
+    format-command: 'alejandra'
   golines: &golines
     format-command: golines
     format-stdin: true
@@ -72,6 +74,8 @@ tools:
     lint-command: yamllint -f parsable -
     lint-stdin: true
 languages:
+  nix:
+    - <<: *alejandra
   go:
     - <<: *golines
   java:

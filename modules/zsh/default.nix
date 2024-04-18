@@ -149,7 +149,6 @@
         EDITOR = "nvim";
         VISUAL = "nvim";
         PAGER = "less";
-        MANPAGER = "sh -c 'col -bx | bat -l man -p'";
       };
       enableCompletion = true;
       enableAutosuggestions = true;
@@ -167,6 +166,7 @@
           "pip"
           "sudo"
           "zsh-interactive-cd"
+          "colored-man-pages"
         ];
       };
     };

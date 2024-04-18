@@ -221,7 +221,6 @@ return {
         return
       end
 
-
       local efmls_config = {
         filetypes = {
           "java",
@@ -229,6 +228,7 @@ return {
           "lua",
           "go",
           "svelte",
+          "nix",
           "yaml",
           "lua",
           "markdown",
@@ -246,8 +246,7 @@ return {
         },
       }
 
-      lspconfig.efm.setup(vim.tbl_extend("force", efmls_config, {
-      }))
+      lspconfig.efm.setup(vim.tbl_extend("force", efmls_config, {}))
     end,
   },
 }

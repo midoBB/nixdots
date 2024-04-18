@@ -3,5 +3,5 @@
 set -e
 
 pushd ~/.dotfiles
-home-manager switch --flake "./#laptop"
+home-manager switch --flake "./#mh@laptop"
 popd

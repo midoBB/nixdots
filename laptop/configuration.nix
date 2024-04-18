@@ -129,6 +129,9 @@
     systemPackages = with pkgs; [wget curl git];
     pathsToLink = ["/libexec" "/share/zsh"];
     shells = with pkgs; [zsh];
+    sessionVariables = {
+      FLAKE = "/home/mh/.dotfiles/";
+    };
   };
 
   # This value determines the NixOS release from which the default

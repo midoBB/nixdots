@@ -145,12 +145,12 @@
       modules = [./work/configuration.nix ./modules/system-services.nix];
     };
     homeConfigurations = {
-      laptop = home-manager.lib.homeManagerConfiguration {
+      "mh@laptop" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [home-common home-laptop nix-index-database.hmModules.nix-index];
         extraSpecialArgs = {inherit pkgs-unstable;};
       };
-      work = home-manager.lib.homeManagerConfiguration {
+      "mh@work" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [home-common home-work nix-index-database.hmModules.nix-index];
         extraSpecialArgs = {inherit pkgs-unstable;};

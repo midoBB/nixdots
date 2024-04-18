@@ -60,9 +60,10 @@
     prisma-engines # ditto for schema.prisma files
     nodePackages."@tailwindcss/language-server"
     nodePackages.vscode-langservers-extracted
-    prettierd
-    nodePackages.eslint_d
     nodePackages.typescript-language-server
+    nodePackages.prettier
+    nodePackages.eslint
+
     # Clojure
     clj-kondo
     clojure-lsp

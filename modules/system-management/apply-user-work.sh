@@ -3,5 +3,5 @@
 set -e
 
 pushd ~/.dotfiles
-home-manager switch --flake "./#work"
+home-manager switch --flake "./#mh@work"
 popd
