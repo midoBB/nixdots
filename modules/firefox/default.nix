@@ -2,11 +2,7 @@
   pkgs,
   config,
   ...
-}: let
-  vdhcoapp = pkgs.nur.repos.wolfangaukang.vdhcoapp.overrideAttrs (old: rec {
-    version = "2.0.17";
-  });
-in {
+}: {
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-bin;
@@ -157,6 +153,6 @@ in {
       '';
     };
   };
-  home.file.".mozilla/native-messaging-hosts/net.downloadhelper.coapp.json".source =
-    config.lib.file.mkOutOfStoreSymlink "${vdhcoapp}/lib/mozilla/native-messaging-hosts/net.downloadhelper.coapp.json";
+  /* home.file.".mozilla/native-messaging-hosts/net.downloadhelper.coapp.json".source = */
+    /* config.lib.file.mkOutOfStoreSymlink "${pkgs.nur.repos.wolfangaukang.vdhcoapp}/lib/mozilla/native-messaging-hosts/net.downloadhelper.coapp.json"; */
 }

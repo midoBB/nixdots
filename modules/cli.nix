@@ -1,4 +1,8 @@
-{pkgs, pkgs-unstable, ...}: {
+{
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
   home.packages = with pkgs; [
     # CLI tools / Terminal facification
     docker-compose
@@ -47,7 +51,7 @@
     tokei
     # some sane alternatives to mv and rm
     rename
-
+    file
     pkgs-unstable.nh
   ];
   # Use program without necessarily installing it prior

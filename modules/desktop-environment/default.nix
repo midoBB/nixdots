@@ -62,7 +62,6 @@
     xdotool
     # Sound control panel
     pavucontrol
-    indicator-sound-switcher
 
     # System tray (Kind of a hack atm)
     # Need polybar to support this as a first class module

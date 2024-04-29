@@ -13,7 +13,7 @@
         jetbrains.idea-community
       ]
       else [
-        jetbrains.goland
+        pkgs-unstable.jetbrains.goland
         trayscale
         rawtherapee
         digikam
@@ -23,7 +23,6 @@
         pkgs-unstable.ticktick
         jetbrains.idea-ultimate
         jetbrains.datagrip
-        emacs29
         sublime4
         # office suite
         libreoffice

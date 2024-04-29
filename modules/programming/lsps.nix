@@ -77,7 +77,6 @@
     coursier
     metals
 
-
     efm-langserver
   ];
 }

@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   workMode,
   ...
 }: let
@@ -13,7 +14,7 @@ in {
     package =
       if workMode
       then pkgs.go_1_18
-      else pkgs.go;
+      else pkgs-unstable.go;
     goBin = ".go/bin";
     goPath = ".go";
   };

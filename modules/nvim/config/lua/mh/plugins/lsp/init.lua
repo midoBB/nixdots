@@ -3,9 +3,9 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      { "folke/neoconf.nvim",      cmd = "Neoconf",    config = true },
-      { "smjonas/inc-rename.nvim", config = true,      event = "LspAttach" },
-      { "SmiteshP/nvim-navic",     event = "LspAttach" },
+      { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
+      { "smjonas/inc-rename.nvim", config = true, event = "LspAttach" },
+      { "SmiteshP/nvim-navic", event = "LspAttach" },
       {
         "kosayoda/nvim-lightbulb",
         event = "LspAttach",
@@ -235,7 +235,15 @@ return {
           "python",
           "gitcommit",
         },
-        settings = {},
+        settings = {
+          languages = {
+            nix = {
+              {
+                require("efmls-configs.formatters.alejandra"),
+              },
+            },
+          },
+        },
         init_options = {
           documentFormatting = true,
           documentRangeFormatting = true,

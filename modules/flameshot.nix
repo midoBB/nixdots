@@ -9,7 +9,7 @@
     enable = true;
     settings = {
       General = {
-        # disabledTrayIcon = true;
+        #disabledTrayIcon = true;
         showStartupLaunchMessage = false;
         showDesktopNotification = false;
       };

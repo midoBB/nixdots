@@ -74,7 +74,7 @@ local M = {
       { "nvim-neotest/nvim-nio" },
       { "theHamsta/nvim-dap-virtual-text" },
       { "nvim-telescope/telescope-dap.nvim" },
-      { "LiadOz/nvim-dap-repl-highlights",  opts = {} },
+      { "LiadOz/nvim-dap-repl-highlights", opts = {} },
     },
     -- stylua: ignore
     keys = {
